@@ -19,14 +19,14 @@ export const Contact = () => {
           Contact
         </h1>
         <div className="mt-6 text-center">
-          <h3 className="text-gray-300 text-2xl">You can find me on:</h3>
+          <h3 className="text-gray-200 text-2xl">You can find me on:</h3>
           <div className="flex justify-center space-x-4 mt-2">
             <motion.a
               href="https://github.com/romanperk"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
-              className="text-indigo-400 hover:underline"
+              className="text-purple-500 hover:underline text-lg"
             >
               GitHub
             </motion.a>
@@ -35,18 +35,18 @@ export const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
-              className="text-indigo-400 hover:underline"
+              className="text-purple-500 hover:underline text-lg"
             >
               LinkedIn
             </motion.a>
           </div>
         </div>
         <div className="mt-6 text-center">
-          <h3 className="text-gray-400 text-xl">Or send me an email:</h3>
+          <h3 className="text-gray-300 text-xl">Or send me an email:</h3>
           <div className="flex justify-center space-x-4 mt-2">
             <motion.p
               whileHover={{ scale: 1.1 }}
-              className="text-indigo-300 text-sm cursor-pointer"
+              className="text-purple-400 text-md cursor-pointer"
               onClick={() =>
                 (window.location.href = "mailto:perkroman@gmail.com")
               }

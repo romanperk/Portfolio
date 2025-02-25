@@ -18,7 +18,7 @@ export const Home = () => {
         <h1 className="text-5xl font-bold tracking-tight text-gray-100 sm:text-7xl">
           Roman Perk
         </h1>
-        <p className="mt-8 text-lg font-medium text-purple-400 sm:text-xl">
+        <p className="mt-8 text-lg font-medium text-purple-500 sm:text-xl">
           Frontend Developer | SW Development Student
         </p>
         <p className="mt-8 text-md font-medium text-gray-300 sm:text-xl">
