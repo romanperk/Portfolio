@@ -39,7 +39,7 @@ export const NavBar = () => {
         aria-label="Global"
         className="flex items-center justify-between p-6 lg:px-8"
       >
-        <div className="flex items-center gap-x-12">
+        <div className="flex items-center gap-x-12 lg:pl-8">
           <Logo />
         </div>
         <div className="flex items-center lg:hidden">
@@ -54,7 +54,7 @@ export const NavBar = () => {
             )}
           </button>
         </div>
-        <div className={`hidden lg:flex items-center gap-x-12`}>
+        <div className={`hidden lg:flex lg:pr-8 items-center gap-x-12`}>
           {navigation.map((item) => (
             <motion.div whileHover={{ scale: 1.1 }}>
               <NavLink

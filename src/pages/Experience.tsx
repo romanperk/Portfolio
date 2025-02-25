@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const Experience = () => {
   return (
-    <div id="experience" className="relative isolate lg:px-8 min-h-screen">
+    <div id="experience" className="relative isolate lg:px-8">
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 0.4, y: 0 }}
@@ -17,7 +17,7 @@ export const Experience = () => {
           My
         </h1>
         <h1 className="text-5xl font-bold tracking-tight text-gray-100 sm:text-7xl pb-2">
-          Career Experience
+          Experience
         </h1>
       </div>
       <ol className="items-center sm:flex p-8">

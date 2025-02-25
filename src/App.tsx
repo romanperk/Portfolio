@@ -5,11 +5,8 @@ import AppRoutes from "./Routes";
 export default function Example() {
   return (
     <BrowserRouter>
-      <div
-        id="app"
-        className="isolate bg-black text-white min-h-screen w-full h-full"
-      >
-        <div aria-hidden="true" className="aurora-effect blur-3xl" />
+      <div id="app" className="isolate text-white">
+        <div aria-hidden="true" className="aurora-effect" />
         <NavBar />
         <AppRoutes />
       </div>

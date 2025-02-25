@@ -2,12 +2,15 @@
 
 @keyframes aurora {
   0% {
+    transform: translateY(0px);
     background-position: 0% 50%;
   }
   50% {
+    transform: translateY(30px);
     background-position: 100% 50%;
   }
   100% {
+    transform: translateY(0px);
     background-position: 0% 50%;
   }
 }
@@ -28,4 +31,6 @@
   left: 0;
   opacity: 0.8;
   z-index: -1;
+  filter: blur(70px);
+  will-change: transform, filter;
 }

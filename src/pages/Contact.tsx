@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const Contact = () => {
   return (
-    <div id="contact" className="relative isolate lg:px-8 min-h-screen">
+    <div id="contact" className="relative isolate lg:px-8">
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 0.4, y: 0 }}

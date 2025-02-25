@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const Home = () => {
   return (
-    <div id="home" className="relative isolate lg:px-8 min-h-screen">
+    <div id="home" className="relative isolate lg:px-8">
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 0.4, y: 0 }}
