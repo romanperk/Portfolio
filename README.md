@@ -1,6 +1,6 @@
 # Roman Perk's Portfolio
 
-Hey there! I'm **Roman Perk**, a software development student and a **Junior Frontend Developer** on a mission to craft sleek, high-performance web experiences. This project is part of my ever-evolving portfolio, where I showcase my skills in **React, TypeScript, and Vite** — a powerhouse combo for modern web development.
+Hey there! I'm **Roman Perk**, a software development student and a **Junior Frontend Developer** on a mission to craft sleek, high-performance web experiences. This project is part of my ever-evolving portfolio, where I use my skills in **React with TailwindCSS, Framer Motion, TypeScript, and Vite** — a great combo for modern web development.
 
 ## 🚀 Why this project?
 
