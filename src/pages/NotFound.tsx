@@ -1,22 +1,42 @@
+import { motion } from "framer-motion";
+
 export const NotFound = () => {
   return (
-    <div id="notFound" className="relative isolate lg:px-8">
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 -top40 -z-10 transform-gpu overflow-hidden blur-3xl"
+    <div id="notFound" className="relative isolate lg:px-8 min-h-screen">
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 0.4, y: 0 }}
+        transition={{ duration: 1 }}
+        className="absolute text-[8rem] sm:text-[15rem] font-extrabold text-gray-800 opacity-40 top-[16vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
       >
-        <div
-          style={{
-            clipPath:
-              "polygon(24.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 60.7% 2%, 72.5% 82.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 75.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 87.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-          className="relative left-[calc(50%-11rem)] aspect-[1055/578] w-[36.125rem] -translate-x-1/2 rotate-[180deg] bg-gradient-to-tr from-pink-700 to-indigo-700 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-        />
-      </div>
-      <div className="mx-auto max-w-2xl py-32 sm:py-42 lg:py-52">
-        <h2 className="text-3xl font-semibold text-center text-gray-100">
+        LOL
+      </motion.h1>
+      <div className="mx-auto max-w-2xl py-32 sm:py-42 lg:py-52 text-center flex items-center justify-center flex-col gap-7">
+        <h2 className="text-3xl sm:text-5xl font-bold text-white">
           404 - Page Not Found
         </h2>
+        <motion.a
+          href="/"
+          whileHover={{ scale: 1.1 }}
+          className="w-30 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-purple-600"
+        >
+          Home page
+          <svg
+            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </motion.a>
       </div>
     </div>
   );

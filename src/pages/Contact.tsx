@@ -1,41 +1,58 @@
+import { motion } from "framer-motion";
+
 export const Contact = () => {
   return (
-    <div id="contact" className="relative isolate lg:px-8">
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 -top40 -z-10 transform-gpu overflow-hidden blur-3xl"
+    <div id="contact" className="relative isolate lg:px-8 min-h-screen">
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 0.4, y: 0 }}
+        transition={{ duration: 1 }}
+        className="absolute text-[8rem] sm:text-[15rem] font-extrabold text-gray-800 opacity-40 top-[16vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
       >
-        <div
-          style={{
-            clipPath:
-              "polygon(24.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 60.7% 2%, 72.5% 82.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 75.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 87.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-          className="relative left-[calc(50%-11rem)] aspect-[1055/578] w-[36.125rem] -translate-x-1/2 rotate-[180deg] bg-gradient-to-tr from-pink-700 to-indigo-700 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-        />
-      </div>
-      <div className="mx-auto max-w-2xl py-32 sm:py-42 lg:py-52">
-        <h2 className="text-3xl font-semibold text-center text-gray-100">
-          My Contact
-        </h2>
+        MSG
+      </motion.h1>
+      <div className="mx-auto max-w-4xl pt-32 sm:pt-42 lg:pt-52 text-center">
+        <h1 className="text-4xl font-semibold tracking-tight text-gray-100 sm:text-6xl">
+          My
+        </h1>
+        <h1 className="text-5xl font-bold tracking-tight text-gray-100 sm:text-7xl pb-2">
+          Contact
+        </h1>
         <div className="mt-6 text-center">
-          <p className="text-gray-400">You can find me on:</p>
+          <h3 className="text-gray-300 text-2xl">You can find me on:</h3>
           <div className="flex justify-center space-x-4 mt-2">
-            <a
+            <motion.a
               href="https://github.com/romanperk"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
               className="text-indigo-400 hover:underline"
             >
               GitHub
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="https://www.linkedin.com/in/roman-perk/"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
               className="text-indigo-400 hover:underline"
             >
               LinkedIn
-            </a>
+            </motion.a>
+          </div>
+        </div>
+        <div className="mt-6 text-center">
+          <h3 className="text-gray-400 text-xl">Or send me an email:</h3>
+          <div className="flex justify-center space-x-4 mt-2">
+            <motion.p
+              whileHover={{ scale: 1.1 }}
+              className="text-indigo-300 text-sm cursor-pointer"
+              onClick={() =>
+                (window.location.href = "mailto:perkroman@gmail.com")
+              }
+            >
+              perkroman@gmail.com
+            </motion.p>
           </div>
         </div>
       </div>
