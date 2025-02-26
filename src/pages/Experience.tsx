@@ -1,86 +1,35 @@
-import DateLogo from "../assets/date.svg?react";
-import { motion } from "framer-motion";
+import { TimeLine } from "../components/TimeLine";
+import { BackgroundTextEffect } from "../components/BackgroundTextEffect";
+import { PageHeader } from "../components/PageHeader";
 
 export const Experience = () => {
+  const timeLineData = {
+    dates: [
+      "October, 2021 - June, 2022",
+      "September, 2022 - expected June, 2025",
+      "July, 2024 - Present",
+    ],
+    headers: [
+      "Promoter for Acer and Microsoft at Alza.cz",
+      "Started SW Development studium at Unicorn University",
+      "Part-time Junior React Developer at 2N Telekomunikace a.s.",
+    ],
+    texts: [
+      "Work included training on new products regarding the brand Acer, Microsoft and, for example, Intel.",
+      "I am a 3rd year student at Unicorn University, majoring in Software Development." +
+        " I am gaining knowledge in fields such as React.js, JavaScript, Java, AI, Project Management, Mathematics etc. I have worked with my colleagues on a few group projects (fe. video library and temperature tracking using IoT device). Currently doing a bachelor's work on Comparison of component libraries for development in React",
+      "The role involves contributing to Frontend codebase of the My2N website, cooperating with the team (Backend, QA, Scrum master, PO)" +
+        " using Jira and Agile form of development (Stand-ups, Refinements, Estimations, User Story mappings etc.). The stack includes React in JS (new code in TS) with MUI, React Hook Form, Redux, Redux Toolkit, Jest testing library and GitLab.",
+    ],
+  };
+
   return (
     <div id="experience" className="relative isolate lg:px-8">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 0.4, y: 0 }}
-        transition={{ duration: 1 }}
-        className="absolute text-[8rem] sm:text-[15rem] font-extrabold text-gray-800 opacity-40 top-[16vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
-      >
-        EXP
-      </motion.h1>
-      <div className="mx-auto max-w-4xl pt-32 sm:pt-42 lg:pt-52 text-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-gray-100 sm:text-6xl">
-          My
-        </h1>
-        <h1 className="text-5xl font-bold tracking-tight text-gray-100 sm:text-7xl pb-2">
-          Experience
-        </h1>
+      <BackgroundTextEffect text={"EXP"} />
+      <PageHeader text1={"My"} text2={"Experience"} />
+      <div className="mx-auto max-w-4xl p-4 flex flex-col">
+        <TimeLine data={timeLineData} />
       </div>
-      <ol className="items-center sm:flex p-8">
-        <li className="relative mb-6 sm:mb-0">
-          <div className="flex items-center">
-            <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0  bg-purple-900  shrink-0">
-              <DateLogo />
-            </div>
-            <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-          </div>
-          <div className="mt-3 sm:pe-8">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Started SW Development studium at UUN
-            </h3>
-            <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              September of 2022
-            </time>
-            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-              React.js, JavaScript, Java, AI, Project Management, Mathematics
-              etc.
-            </p>
-          </div>
-        </li>
-        <li className="relative mb-6 sm:mb-0">
-          <div className="flex items-center">
-            <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0  bg-purple-900  shrink-0">
-              <DateLogo />
-            </div>
-            <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-          </div>
-          <div className="mt-3 sm:pe-8">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Job as Junior React Developer at 2N
-            </h3>
-            <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              July of 2024
-            </time>
-            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-              Redux, Jira, TypeScript, Unit Testing, GitLab, Jest, RHF, MUI
-            </p>
-          </div>
-        </li>
-        <li className="relative mb-6 sm:mb-0">
-          <div className="flex items-center">
-            <div className="z-10 flex items-center justify-center w-6 h-6 rounded-full ring-0  bg-purple-900  shrink-0">
-              <DateLogo />
-            </div>
-            <div className="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-          </div>
-          <div className="mt-3 sm:pe-8">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Expected finish of SW Development studium at UUN
-            </h3>
-            <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              June of 2025
-            </time>
-            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-              Bachelor's work on Comparison of component libraries for
-              development in React
-            </p>
-          </div>
-        </li>
-      </ol>
     </div>
   );
 };
