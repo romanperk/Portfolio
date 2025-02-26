@@ -30,7 +30,7 @@ export const Experience = () => {
           </div>
           <div className="mt-3 sm:pe-8">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Study of SW Development studium at UUN
+              Started SW Development studium at UUN
             </h3>
             <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               September of 2022
