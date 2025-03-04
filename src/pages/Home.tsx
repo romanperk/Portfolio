@@ -4,7 +4,7 @@ import { BackgroundTextEffect } from "../components/BackgroundTextEffect";
 
 export const Home = () => {
   return (
-    <div id="home" className="relative isolate lg:px-8">
+    <div id="home" className="relative lg:px-8 min-h-screen">
       <BackgroundTextEffect text="HEY" />
       <PageHeader text1="I'm" text2="Roman Perk" />
       <div className="mx-auto max-w-5xl text-center p-8">

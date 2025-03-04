@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { BackgroundTextEffect } from "../components/BackgroundTextEffect";
 import { PageHeader } from "../components/PageHeader";
+import { scrollAnimation } from "../consts/scrollAnimation";
 
 export const Contact = () => {
   return (
-    <div id="contact" className="relative isolate lg:px-8">
+    <div id="contact" className="min-h-screen relative lg:px-8">
       <BackgroundTextEffect text={"MSG"} />
       <PageHeader text1={"My"} text2={"Contact"} />
       <div className="mx-auto max-w-4xl text-center">
-        <div className="mt-6 text-center">
+        <motion.div {...scrollAnimation(0)} className="mt-6 text-center">
           <h3 className="text-gray-200 text-2xl">You can find me on:</h3>
           <div className="flex justify-center space-x-4 mt-2">
             <motion.a
@@ -30,8 +31,8 @@ export const Contact = () => {
               LinkedIn
             </motion.a>
           </div>
-        </div>
-        <div className="mt-6 text-center">
+        </motion.div>
+        <motion.div {...scrollAnimation(1)} className="mt-6 text-center">
           <h3 className="text-gray-300 text-xl">Or send me an email:</h3>
           <div className="flex justify-center space-x-4 mt-2">
             <motion.p
@@ -44,7 +45,7 @@ export const Contact = () => {
               perkroman@gmail.com
             </motion.p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

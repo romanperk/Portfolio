@@ -1,24 +1,18 @@
 import { motion } from "framer-motion";
+import { BackgroundTextEffect } from "../components/BackgroundTextEffect";
+import { PageHeader } from "../components/PageHeader";
+import { scrollAnimation } from "../consts/scrollAnimation";
 
 export const Projects = () => {
   return (
-    <div id="projects" className="relative isolate lg:px-8">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 0.4, y: 0 }}
-        transition={{ duration: 1 }}
-        className="absolute text-[8rem] sm:text-[15rem] font-extrabold text-gray-800 opacity-40 top-[16vh] lg:top-[22vh] xl:top-[16vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
-      >
-        {"</>"}
-      </motion.h1>
-      <div className="mx-auto max-w-4xl pt-32 sm:pt-42 lg:pt-52 flex text-center items-center flex-col">
-        <h1 className="text-4xl font-semibold tracking-tight text-gray-100 sm:text-6xl">
-          My
-        </h1>
-        <h1 className="text-5xl font-bold tracking-tight text-gray-100 sm:text-7xl pb-2">
-          Projects
-        </h1>
-        <div className="max-w-sm border rounded-lg shadow-sm bg-black border-gray-700 m-16">
+    <div id="projects" className="relative lg:px-8 min-h-screen">
+      <BackgroundTextEffect text="</>" />
+      <PageHeader text1={"My"} text2={"Projects"} />
+      <div className="mx-auto max-w-4xl flex text-center items-center flex-col">
+        <motion.div
+          {...scrollAnimation()}
+          className="max-w-sm border rounded-lg shadow-sm bg-black border-gray-700 m-16"
+        >
           <div className="p-5">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               BeerMeter
@@ -45,15 +39,15 @@ export const Projects = () => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 5h12m0 0L9 1m4 4L9 9"
                 />
               </svg>
             </motion.a>
           </div>
-        </div>
+        </motion.div>
         <h3 className="text-2xl font-bold tracking-tight text-gray-100 pb-10">
           More to come...
         </h3>

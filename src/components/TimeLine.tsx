@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { scrollAnimation } from "../consts/scrollAnimation";
 
 interface TimeLineProps {
   data: { dates: string[]; headers: string[]; texts: string[] };
@@ -7,22 +8,10 @@ interface TimeLineProps {
 export const TimeLine = ({ data }: TimeLineProps) => {
   const { dates, headers, texts } = data;
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <>
       {dates.map((date, index) => (
-        <motion.div
-          key={index}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
-          variants={itemVariants}
-        >
+        <motion.div key={index} {...scrollAnimation(index)}>
           <div className="ps-2 mt-4">
             <h3 className="text-xs font-medium uppercase text-neutral-400">
               {date}
