@@ -13,7 +13,7 @@ export const Experience = () => {
         text: "Having completed my Bachelor's degree, I'm now expanding my skills in software development, contributing to both frontend and backend parts of My2N with backend work mainly in Java, WebFlux and Kafka.",
       },
       {
-        date: "July, 2024 - July, 2025",
+        date: "July, 2024 - June, 2025",
         header: "Junior React Developer",
         employer: "2N TELEKOMUNIKACE a.s.",
         type: "Part-time",
