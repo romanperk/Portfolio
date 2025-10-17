@@ -1,20 +1,28 @@
 import { motion } from "framer-motion";
 import { scrollAnimation } from "../consts/scrollAnimation";
 
+interface TimeLineItem {
+  date: string;
+  header: string;
+  text: string;
+  type: string;
+  employer: string;
+}
+
 interface TimeLineProps {
-  data: { dates: string[]; headers: string[]; texts: string[] };
+  data: { items: TimeLineItem[] };
 }
 
 export const TimeLine = ({ data }: TimeLineProps) => {
-  const { dates, headers, texts } = data;
+  const { items } = data;
 
   return (
     <>
-      {dates.map((date, index) => (
+      {items.map((item, index) => (
         <motion.div key={index} {...scrollAnimation(index)}>
           <div className="ps-2 mt-4">
             <h3 className="text-xs font-medium uppercase text-neutral-400">
-              {date}
+              {item.date}
             </h3>
           </div>
           <div className="flex gap-x-3">
@@ -24,10 +32,20 @@ export const TimeLine = ({ data }: TimeLineProps) => {
               </div>
             </div>
             <div className="grow pt-0.5 pb-2">
-              <h3 className="flex gap-x-1.5 font-semibold text-white">
-                {headers[index]}
+              <h3 className="font-semibold text-white">
+                <div className="text-sm flex flex-col items-start md:flex-row md:items-center md:gap-x-2 sm:text-xl">
+                  <span>{item.header}</span>
+                  <span className="mt-1 md:mt-0 inline-block whitespace-nowrap md:self-center self-start text-xs font-medium uppercase text-neutral-400 bg-neutral-800 px-2 py-0.5 rounded sm:text-sm">
+                    {item.type}
+                  </span>
+                </div>
               </h3>
-              <p className="mt-1 text-sm text-neutral-300">{texts[index]}</p>
+              <div className="mt-1 text-sm text-neutral-400 sm:text-md">
+                {item.employer}
+              </div>
+              <p className="text-sm text-justify mt-1 text-neutral-300 sm:text-lg">
+                {item.text}
+              </p>
             </div>
           </div>
         </motion.div>

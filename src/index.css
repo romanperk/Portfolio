@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 @keyframes aurora {
   0% {
     transform: translateY(0px);

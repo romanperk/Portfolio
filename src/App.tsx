@@ -6,6 +6,8 @@ import { Projects } from "./pages/Projects";
 import { Contact } from "./pages/Contact";
 
 export default function App() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div id="app" className="isolate text-white">
       <div aria-hidden="true" className="aurora-effect" />
@@ -14,6 +16,9 @@ export default function App() {
       <Experience />
       <Projects />
       <Contact />
+      <footer className="w-full py-6 text-center text-gray-400 text-sm">
+        <p>&copy; {currentYear} Roman Perk. All rights reserved.</p>
+      </footer>
       <Analytics />
     </div>
   );
