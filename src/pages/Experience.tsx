@@ -6,8 +6,15 @@ export const Experience = () => {
   const timeLineData = {
     items: [
       {
-        date: "July, 2025 - Present",
-        header: "Full Stack Developer primarly focused on Frontend",
+        date: "January, 2026 - Present",
+        header: "Experienced Engineer",
+        employer: "2N TELEKOMUNIKACE a.s.",
+        type: "Full-time",
+        text: "While actively contributing and taking on increased responsibility, I progressed into the role of Experienced Engineer. In this capacity, I led the preparation of a new website for company documentation.",
+      },
+      {
+        date: "July, 2025 - December, 2025",
+        header: "Software Engineer",
         employer: "2N TELEKOMUNIKACE a.s.",
         type: "Full-time",
         text: "Having completed my Bachelor's degree, I'm now expanding my skills in software development, contributing to both frontend and backend parts of My2N with backend work mainly in Java, WebFlux and Kafka.",
