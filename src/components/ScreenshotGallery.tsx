@@ -25,10 +25,14 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
   const dialogRef = useRef<HTMLDialogElement>(null);
   const slidesRef = useRef<HTMLUListElement>(null);
   const thumbnailsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const usingKeyboard = useRef(false);
 
-  const open = (index: number) => {
+  const open = (index: number, event: MouseEvent) => {
+    usingKeyboard.current = event.detail === 0; // A click from Enter or Space has a detail of 0.
     setCurrent(index);
     dialogRef.current?.showModal();
+    // showModal focuses the close button, and some browsers show its outline even after a tap.
+    if (!usingKeyboard.current) dialogRef.current?.focus();
     const slides = slidesRef.current;
     slides?.scrollTo({ left: index * slides.clientWidth, behavior: "instant" });
   };
@@ -41,7 +45,19 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
     if (slides && index >= 0 && index < screenshots.length) slides.scrollTo({ left: index * slides.clientWidth });
   };
 
+  // Focus the screenshot last shown, not the one that opened the viewer. Only keyboard users need focus there.
+  const onClose = () => {
+    const thumbnail = thumbnailsRef.current[current];
+    if (usingKeyboard.current) {
+      thumbnail?.focus();
+    } else {
+      if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+      thumbnail?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
+  };
+
   const onKeyDown = (event: KeyboardEvent) => {
+    usingKeyboard.current = true;
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     event.preventDefault(); // Otherwise the browser also scrolls the slides by a small step.
     goTo(current + (event.key === "ArrowRight" ? 1 : -1));
@@ -64,7 +80,7 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
                   thumbnailsRef.current[index] = button;
                 }}
                 type="button"
-                onClick={() => open(index)}
+                onClick={(event) => open(index, event)}
                 aria-haspopup="dialog"
                 aria-label={`View full screen: ${screenshot.alt}`}
                 className="block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line transition-colors duration-150 hover:border-muted focus-visible:-outline-offset-2"
@@ -80,10 +96,13 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
       <dialog
         ref={dialogRef}
         aria-label="Project screenshots"
+        tabIndex={-1}
         onKeyDown={onKeyDown}
-        // Focus the screenshot last shown, not the one that opened the viewer.
-        onClose={() => thumbnailsRef.current[current]?.focus()}
-        className="h-dvh max-h-none w-full max-w-none overflow-hidden bg-page text-ink"
+        onPointerDown={() => {
+          usingKeyboard.current = false;
+        }}
+        onClose={onClose}
+        className="h-dvh max-h-none w-full max-w-none overflow-hidden bg-page text-ink outline-none"
       >
         <div className="fade-down flex h-full flex-col">
           <div className="shrink-0 border-b border-line">
@@ -92,7 +111,7 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
                 {screenshots[current].caption}, {current + 1} of {screenshots.length}
               </p>
               <div className="flex items-center gap-1">
-                {/* Close comes first in the DOM so it takes focus on open, and stays usable at either end of the list. */}
+                {/* Close comes first in the DOM so it takes focus when opened by keyboard, and stays usable at either end of the list. */}
                 <button type="button" onClick={close} aria-label="Close" title="Close (Esc)" className={`${iconButton} order-last`}>
                   <LuX size={18} strokeWidth={1.5} aria-hidden="true" />
                 </button>
