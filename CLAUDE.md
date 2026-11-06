@@ -21,6 +21,10 @@ There is no test runner and no CI. The checks below are the only safety net, bec
 
 Report any check you skipped or that failed.
 
+## Git workflow
+
+This is a solo project, so commit and push directly to `main`, with no feature branches or pull requests unless asked. This doesn't change when to commit: still wait until asked.
+
 ## Translations
 
 All visible text lives in `src/i18n/en.ts` and `src/i18n/cs.ts`, including aria labels and image alt text. Don't hardcode wording in components. Every change to one file needs the matching change in the other, written as natural Czech or English rather than a literal translation.
