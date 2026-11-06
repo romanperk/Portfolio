@@ -88,6 +88,11 @@
   button {
     cursor: pointer;
   }
+
+  /* A modal dialog doesn't stop the page behind it scrolling. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
 }
 
 @layer components {

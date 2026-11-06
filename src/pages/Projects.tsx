@@ -5,6 +5,7 @@ import pikachuLight from "../assets/projects/pikachu-light.webp";
 import pokedexDark from "../assets/projects/pokedex-dark.webp";
 import pokedexLight from "../assets/projects/pokedex-light.webp";
 import { ExternalLink } from "../components/ExternalLink";
+import { ScreenshotGallery } from "../components/ScreenshotGallery";
 import { Row, Section } from "../components/Section";
 
 const screenshots = [
@@ -45,21 +46,7 @@ export const Projects = () => (
         <ExternalLink href="https://github.com/romanperk/Pokedex-Web">Source code</ExternalLink>
       </p>
 
-      {/* A swipeable row until there is room, since three side by side would be too small to read. */}
-      <ul className="-mx-6 mt-8 flex snap-x scroll-pl-6 gap-3 overflow-x-auto px-6 sm:-mx-8 sm:scroll-pl-8 sm:px-8 md:mx-0 md:scroll-pl-0 md:px-0 lg:grid lg:max-w-[48rem] lg:grid-cols-3 lg:gap-4 lg:overflow-visible">
-        {screenshots.map(({ caption, alt, light, dark }) => (
-          <li key={caption} className="w-[70%] shrink-0 snap-start sm:w-56 lg:w-auto">
-            <figure>
-              <div className="overflow-hidden rounded-xl border border-line">
-                {/* The hidden image is display: none, so lazy loading skips it. */}
-                <img src={light} alt={alt} width={720} height={1440} loading="lazy" decoding="async" className="only-light h-auto w-full" />
-                <img src={dark} alt={alt} width={720} height={1440} loading="lazy" decoding="async" className="only-dark h-auto w-full" />
-              </div>
-              <figcaption className="mt-2 font-mono text-[13px] leading-5 text-muted">{caption}</figcaption>
-            </figure>
-          </li>
-        ))}
-      </ul>
+      <ScreenshotGallery screenshots={screenshots} />
 
       <p className="mt-6 max-w-[65ch] text-sm leading-5 text-muted">
         Fan-made project, not affiliated with Nintendo, Game Freak or The Pokémon Company.
