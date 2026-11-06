@@ -11,7 +11,8 @@ Personal site of Roman Perk, a software engineer at 2N working across the fronte
 The site also has:
 
 - A theme toggle that follows the OS setting until the visitor picks a theme, then remembers that choice in `localStorage`.
-- A not found page for any path other than `/`.
+- English at `/` and Czech at `/cs`, with a language switch in the nav bar.
+- A not found page for any other path.
 - A skip to content link for keyboard users.
 
 ## Tech stack
@@ -47,7 +48,8 @@ The dev server runs with `--host`, so it can also be opened from other devices o
 src/
   assets/       Logo, favicon and project screenshots
   components/   Shared UI: nav bar, career chart, timeline, gallery, theme toggle
-  consts/       Career data and date helpers
+  consts/       Career facts and date helpers
+  i18n/         All text, in English (en.ts) and Czech (cs.ts)
   pages/        Page sections: Home, Experience, Projects, plus NotFound
   App.tsx       Puts the sections together
   index.css     Theme colors and global styles
@@ -55,17 +57,19 @@ src/
 
 ## Updating the content
 
-**Career:** edit `src/consts/career.ts`. The experience list and the career chart both read from that file, so a change only has to be made once. Entries go newest first, and the current role leaves out `end`.
+**Text:** all wording lives in `src/i18n/en.ts` and `src/i18n/cs.ts`. `cs.ts` is typed against `en.ts`, so the build fails if a Czech string is missing.
+
+**Career:** dates and employers are in `src/consts/career.ts`, and the wording is under the same id in `src/i18n`. The experience list and the career chart both read from there. Entries go newest first, and the current role leaves out `end`.
 
 **Tech stack:** edit the `stack` list in `src/pages/Home.tsx`.
 
-**Projects:** edit `src/pages/Projects.tsx`.
+**Projects:** edit `src/pages/Projects.tsx`, with the wording in `src/i18n`.
 
 **Screenshots:** each one needs a light and a dark version in `src/assets/projects`. Import both in `src/pages/Projects.tsx` and add them to the `screenshots` list with a caption and alt text. `ScreenshotGallery` shows them as thumbnails, and the full screen viewer supports swiping, arrow keys and buttons.
 
 ## Deployment
 
-The site is deployed on Vercel. `vercel.json` rewrites every path to `/`, and `App.tsx` shows the not found page for anything else.
+The site is deployed on Vercel. `vercel.json` rewrites every path to `/`, and `App.tsx` shows the not found page for anything other than `/` and `/cs`.
 
 ## Links
 

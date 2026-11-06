@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 import { LuChevronLeft, LuChevronRight, LuX } from "react-icons/lu";
+import { t } from "../i18n";
 
 interface Screenshot {
   caption: string;
@@ -82,7 +83,7 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
                 type="button"
                 onClick={(event) => open(index, event)}
                 aria-haspopup="dialog"
-                aria-label={`View full screen: ${screenshot.alt}`}
+                aria-label={t.gallery.viewFullScreen(screenshot.alt)}
                 className="block w-full cursor-zoom-in overflow-hidden rounded-xl border border-line transition-colors duration-150 hover:border-muted focus-visible:-outline-offset-2"
               >
                 <ThemedImage screenshot={screenshot} className="h-auto w-full" />
@@ -95,7 +96,7 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
 
       <dialog
         ref={dialogRef}
-        aria-label="Project screenshots"
+        aria-label={t.gallery.label}
         tabIndex={-1}
         onKeyDown={onKeyDown}
         onPointerDown={() => {
@@ -108,18 +109,18 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
           <div className="shrink-0 border-b border-line">
             <div className="wrap flex h-14 items-center justify-between">
               <p aria-live="polite" className="font-mono text-[13px] leading-5 text-muted">
-                {screenshots[current].caption}, {current + 1} of {screenshots.length}
+                {screenshots[current].caption}, {t.gallery.position(current + 1, screenshots.length)}
               </p>
               <div className="flex items-center gap-1">
                 {/* Close comes first in the DOM so it takes focus when opened by keyboard, and stays usable at either end of the list. */}
-                <button type="button" onClick={close} aria-label="Close" title="Close (Esc)" className={`${iconButton} order-last`}>
+                <button type="button" onClick={close} aria-label={t.gallery.close} title={t.gallery.closeHint} className={`${iconButton} order-last`}>
                   <LuX size={18} strokeWidth={1.5} aria-hidden="true" />
                 </button>
                 {/* aria-disabled rather than disabled, so reaching an end doesn't drop keyboard focus. */}
-                <button type="button" onClick={() => goTo(current - 1)} aria-label="Previous screenshot" aria-disabled={current === 0} className={iconButton}>
+                <button type="button" onClick={() => goTo(current - 1)} aria-label={t.gallery.previous} aria-disabled={current === 0} className={iconButton}>
                   <LuChevronLeft size={18} strokeWidth={1.5} aria-hidden="true" />
                 </button>
-                <button type="button" onClick={() => goTo(current + 1)} aria-label="Next screenshot" aria-disabled={current === screenshots.length - 1} className={iconButton}>
+                <button type="button" onClick={() => goTo(current + 1)} aria-label={t.gallery.next} aria-disabled={current === screenshots.length - 1} className={iconButton}>
                   <LuChevronRight size={18} strokeWidth={1.5} aria-hidden="true" />
                 </button>
               </div>

@@ -1,5 +1,6 @@
 import { LuArrowUpRight } from "react-icons/lu";
 import { CareerChart } from "../components/CareerChart";
+import { t } from "../i18n";
 
 const stack = [
   "React",
@@ -34,17 +35,14 @@ export const Home = () => (
           Roman Perk
         </h1>
         <p className="mt-6 text-xl leading-7">
-          Experienced Software Engineer at 2N
+          {t.home.role}
         </p>
         <p className="mt-4 max-w-[36rem] text-lg leading-8 text-body">
-          I work on the My2N platform, primarily on the frontend while also
-          contributing to the backend. I hold a Bachelor’s degree in Software
-          Development from Unicorn University and at 2N I led preparation of a
-          new company documentation website.
+          {t.home.intro}
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="mailto:perkroman@gmail.com" className="btn btn-primary">
-            Email me
+            {t.home.emailMe}
           </a>
           <a
             href="https://github.com/romanperk"
@@ -64,7 +62,7 @@ export const Home = () => (
     </div>
 
     <div className="grid gap-x-8 gap-y-2 border-t border-line py-6 md:grid-cols-[12rem_1fr]">
-      <h2 className="font-mono text-[13px] leading-6 text-muted">Stack</h2>
+      <h2 className="font-mono text-[13px] leading-6 text-muted">{t.home.stack}</h2>
       <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm leading-6 text-body">
         {stack.map((name) => (
           <li key={name}>{name}</li>

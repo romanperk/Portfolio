@@ -7,49 +7,48 @@ import pokedexLight from "../assets/projects/pokedex-light.webp";
 import { ExternalLink } from "../components/ExternalLink";
 import { ScreenshotGallery } from "../components/ScreenshotGallery";
 import { Row, Section } from "../components/Section";
+import { t } from "../i18n";
 
 const screenshots = [
   {
     caption: "Discover",
-    alt: "Discover page with search and the Pokémon of the day",
+    alt: t.projects.alt.discover,
     light: discoverLight,
     dark: discoverDark,
   },
   {
     caption: "Pokédex",
-    alt: "Pokédex list with search, type filters and Pokémon cards",
+    alt: t.projects.alt.pokedex,
     light: pokedexLight,
     dark: pokedexDark,
   },
   {
     caption: "Pikachu",
-    alt: "Pikachu detail page with artwork, type and a Pokédex entry",
+    alt: t.projects.alt.pikachu,
     light: pikachuLight,
     dark: pikachuDark,
   },
 ];
 
 export const Projects = () => (
-  <Section id="projects" title="Projects">
-    <Row meta="Personal project">
+  <Section id="projects" title={t.projects.title}>
+    <Row meta={t.projects.personalProject}>
       <h3 className="text-xl font-medium">Pokédex</h3>
       <p className="mt-3 max-w-[65ch] leading-7 text-body">
-        Phone-first app for browsing Pokémon, moves, abilities and items from PokéAPI, checking type matchups, comparing
-        stats, playing a shadow quiz and tracking a collection. It installs to the home screen as a PWA and works
-        offline, in light and dark.
+        {t.projects.pokedexDescription}
       </p>
       <p className="mt-3 font-mono text-[13px] leading-5 text-muted">
         React, TypeScript, Vite, TanStack Query, React Router
       </p>
       <p className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[15px] leading-6">
-        <ExternalLink href="https://pokedex-web-phi-umber.vercel.app">Live app</ExternalLink>
-        <ExternalLink href="https://github.com/romanperk/Pokedex-Web">Source code</ExternalLink>
+        <ExternalLink href="https://pokedex-web-phi-umber.vercel.app">{t.projects.liveApp}</ExternalLink>
+        <ExternalLink href="https://github.com/romanperk/Pokedex-Web">{t.projects.sourceCode}</ExternalLink>
       </p>
 
       <ScreenshotGallery screenshots={screenshots} />
 
       <p className="mt-6 max-w-[65ch] text-sm leading-5 text-muted">
-        Fan-made project, not affiliated with Nintendo, Game Freak or The Pokémon Company.
+        {t.projects.disclaimer}
       </p>
     </Row>
   </Section>

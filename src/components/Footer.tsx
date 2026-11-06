@@ -1,17 +1,20 @@
 import type { ReactNode } from "react";
 import { ExternalLink } from "./ExternalLink";
+import { t } from "../i18n";
 
 const details: { label: string; value: ReactNode }[] = [
   { label: "GitHub", value: <ExternalLink href="https://github.com/romanperk">romanperk</ExternalLink> },
   { label: "LinkedIn", value: <ExternalLink href="https://www.linkedin.com/in/roman-perk/">roman-perk</ExternalLink> },
-  { label: "Location", value: "Prague, Czechia" },
+  { label: t.contact.location, value: t.contact.locationValue },
   {
-    label: "Languages",
+    label: t.contact.languages,
     value: (
       <>
-        <span className="block">Czech, native</span>
-        <span className="block">English, full professional</span>
-        <span className="block">German, elementary</span>
+        {t.contact.languagesValue.map((language) => (
+          <span key={language} className="block">
+            {language}
+          </span>
+        ))}
       </>
     ),
   },
@@ -23,7 +26,7 @@ export const Footer = () => (
       <div className="grid gap-x-16 gap-y-10 xl:grid-cols-[auto_1fr]">
         <div>
           <h2 id="contact-title" className="text-body">
-            Contact
+            {t.contact.title}
           </h2>
           <a
             href="mailto:perkroman@gmail.com"

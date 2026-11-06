@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
 import Logo from "../assets/logo.svg?react";
+import { otherHomePath, t } from "../i18n";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navigation = [
-  { name: "Home", id: "home" },
-  { name: "Experience", id: "experience" },
-  { name: "Projects", id: "projects" },
-  { name: "Contact", id: "contact" },
+  { name: t.nav.home, id: "home" },
+  { name: t.nav.experience, id: "experience" },
+  { name: t.nav.projects, id: "projects" },
+  { name: t.nav.contact, id: "contact" },
 ];
 
 /**
@@ -60,6 +61,11 @@ export const NavBar = () => {
       setActive(atBottom ? navigation[navigation.length - 1].id : (passed[passed.length - 1]?.id ?? "home"));
     };
 
+    // The browser looks for the URL's section before React has rendered it.
+    if (window.location.hash) {
+      document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ behavior: "instant" });
+    }
+
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -92,11 +98,11 @@ export const NavBar = () => {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50 border-b border-line bg-page">
-      <nav aria-label="Main" className="wrap flex h-14 items-center justify-between">
+      <nav aria-label={t.nav.label} className="wrap flex h-14 items-center justify-between">
         <a
           href="#home"
           onClick={() => goTo("home")}
-          aria-label="Roman Perk, home"
+          aria-label={t.nav.logo}
           className="text-ink [&_svg]:h-6 [&_svg]:w-auto"
         >
           <Logo aria-hidden="true" />
@@ -120,6 +126,17 @@ export const NavBar = () => {
             ))}
           </ul>
 
+          {/* Keeps the visitor on the section they were reading. */}
+          <a
+            href={active === "home" ? otherHomePath : `${otherHomePath}#${active}`}
+            hrefLang={t.languageSwitch.short.toLowerCase()}
+            aria-label={t.languageSwitch.label}
+            title={t.languageSwitch.label}
+            className="flex size-10 items-center justify-center rounded-lg font-mono text-[13px] text-body transition-colors duration-150 hover:bg-raised hover:text-ink"
+          >
+            {t.languageSwitch.short}
+          </a>
+
           <ThemeToggle />
 
           <button
@@ -128,7 +145,7 @@ export const NavBar = () => {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
             className="flex size-10 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-raised hover:text-ink sm:hidden"
           >
             {menuOpen ? (

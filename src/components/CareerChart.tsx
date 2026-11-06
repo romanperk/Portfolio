@@ -1,4 +1,5 @@
 import { career, formatDuration, formatRange, today, toMonths } from "../consts/career";
+import { t } from "../i18n";
 
 export const CareerChart = () => {
   const end = today();
@@ -11,7 +12,7 @@ export const CareerChart = () => {
 
   return (
     <figure className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
-      <figcaption className="text-sm text-body">Career, drawn to scale</figcaption>
+      <figcaption className="text-sm text-body">{t.chartCaption}</figcaption>
 
       <div className="relative mt-5">
         <div aria-hidden="true" className="absolute inset-x-0 top-0 bottom-7">

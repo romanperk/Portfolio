@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { LuMoon, LuSun } from "react-icons/lu";
+import { t } from "../i18n";
 
 type Theme = "light" | "dark";
 
@@ -36,8 +37,8 @@ export const ThemeToggle = () => {
     <button
       type="button"
       onClick={toggle}
-      aria-label={`Switch to ${next} theme`}
-      title={`Switch to ${next} theme`}
+      aria-label={t.theme[next]}
+      title={t.theme[next]}
       className="flex size-10 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-raised hover:text-ink"
     >
       <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
