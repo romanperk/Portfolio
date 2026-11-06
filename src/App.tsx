@@ -1,25 +1,31 @@
-import { NavBar } from "./components/NavBar";
 import { Analytics } from "@vercel/analytics/react";
-import { Home } from "./pages/Home";
+import { Footer } from "./components/Footer";
+import { NavBar } from "./components/NavBar";
 import { Experience } from "./pages/Experience";
+import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
 import { Projects } from "./pages/Projects";
-import { Contact } from "./pages/Contact";
 
 export default function App() {
-  const currentYear = new Date().getFullYear();
+  // The site is one page, and vercel.json sends every other path here too.
+  if (window.location.pathname !== "/") return <NotFound />;
 
   return (
-    <div id="app" className="isolate text-white">
-      <div aria-hidden="true" className="aurora-effect" />
+    <>
+      <a
+        href="#main"
+        className="btn btn-primary sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60]"
+      >
+        Skip to content
+      </a>
       <NavBar />
-      <Home />
-      <Experience />
-      <Projects />
-      <Contact />
-      <footer className="w-full py-6 text-center text-gray-400 text-sm">
-        <p>&copy; {currentYear} Roman Perk. All rights reserved.</p>
-      </footer>
+      <main id="main" tabIndex={-1} className="outline-none">
+        <Home />
+        <Experience />
+        <Projects />
+      </main>
+      <Footer />
       <Analytics />
-    </div>
+    </>
   );
 }

@@ -1,69 +1,206 @@
+@import "@fontsource/ibm-plex-sans/latin-400.css";
+@import "@fontsource/ibm-plex-sans/latin-500.css";
+@import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+:root {
+  color-scheme: light;
+  --page: #fbfaf8;
+  --surface: #ffffff;
+  --raised: #f1f0ec;
+  --ink: #1c1b19;
+  --body: #56534e;
+  --muted: #6f6b65;
+  --line: rgb(28 27 25 / 0.1);
+  --accent: #f0a63a;
+  --accent-hover: #e4982a;
+  --accent-ink: #8f5300;
+  --on-accent: #1c1400;
 }
 
-body,
-html {
-  overflow-x: hidden;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #131312;
+    --surface: #1a1a18;
+    --raised: #242321;
+    --ink: #ededea;
+    --body: #a8a6a0;
+    --muted: #8f8d87;
+    --line: rgb(237 237 234 / 0.1);
+    --accent-hover: #f5b558;
+    --accent-ink: #f0a63a;
   }
 }
 
-@keyframes aurora {
-  0% {
-    transform: translateY(0px);
-    background-position: 0% 50%;
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #131312;
+  --surface: #1a1a18;
+  --raised: #242321;
+  --ink: #ededea;
+  --body: #a8a6a0;
+  --muted: #8f8d87;
+  --line: rgb(237 237 234 / 0.1);
+  --accent-hover: #f5b558;
+  --accent-ink: #f0a63a;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem; /* 3.5rem header + 1.5rem gap above the heading */
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
   }
-  50% {
-    transform: translateY(30px);
-    background-position: 100% 50%;
+
+  body {
+    min-width: 320px;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--font-sans);
   }
-  100% {
-    transform: translateY(0px);
-    background-position: 0% 50%;
+
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
 
-.aurora-effect {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 0, 150, 0.4),
-    rgba(0, 204, 255, 0.4),
-    rgba(0, 255, 204, 0.4)
-  );
-  background-size: 200% 200%;
-  animation: aurora 10s ease infinite;
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  opacity: 0.6;
-  z-index: -1;
-  filter: blur(70px);
-  will-change: transform, filter;
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.75rem;
+    padding-inline: 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition:
+      background-color 150ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .btn-secondary:hover {
+    background: var(--raised);
+  }
+
+  /* Swaps images with the theme, including when the visitor overrides their system setting. */
+  .only-dark {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .only-light {
+      display: none;
+    }
+
+    :root:not([data-theme="light"]) .only-dark {
+      display: block;
+    }
+  }
+
+  :root[data-theme="dark"] .only-light {
+    display: none;
+  }
+
+  :root[data-theme="dark"] .only-dark {
+    display: block;
+  }
+
+  .text-link {
+    text-decoration-line: underline;
+    text-decoration-color: var(--line);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .text-link:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
-@keyframes infinite-scroll {
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .rise {
+    animation: rise 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .fade-down {
+    animation: fade-down 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes rise {
   from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
+    opacity: 0;
+    transform: translateY(8px);
   }
 }
 
-.animate-infinite-scroll {
-  animation: infinite-scroll 25s linear infinite;
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }

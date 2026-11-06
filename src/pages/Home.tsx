@@ -1,48 +1,75 @@
-import { motion } from "framer-motion";
-import { PageHeader } from "../components/PageHeader";
-import { InfiniteCarousel } from "../components/InfiniteCarousel";
-import { BackgroundTextEffect } from "../components/BackgroundTextEffect";
+import { LuArrowUpRight } from "react-icons/lu";
+import { CareerChart } from "../components/CareerChart";
 
-export const Home = () => {
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+const stack = [
+  "React",
+  "JavaScript",
+  "TypeScript",
+  "Redux",
+  "Material UI",
+  "React Hook Form",
+  "Tailwind CSS",
+  "Jest",
+  "Java",
+  "Kotlin",
+  "Spring WebFlux",
+  "Kafka",
+  "AWS",
+  "GitHub",
+  "GitLab",
+];
 
-  return (
-    <div id="home" className="relative lg:px-8 min-h-screen">
-      <BackgroundTextEffect text="HEY" />
-      <PageHeader as="h1" text1="I'm" text2="Roman Perk" />
-      <div className="mx-auto max-w-5xl text-center p-8">
-        <p className="mt-8 text-sm font-medium text-purple-400 sm:text-xl">
-          Experienced Engineer at 2N · Bachelor's degree in SW Development
+export const Home = () => (
+  <section
+    id="home"
+    aria-labelledby="home-title"
+    className="wrap flex flex-col lg:min-h-[calc(100svh-3.5rem)]"
+  >
+    <div className="grid flex-1 items-center gap-x-16 gap-y-12 py-12 sm:py-16 lg:grid-cols-2">
+      <div className="rise">
+        <h1
+          id="home-title"
+          className="text-5xl leading-[1.05] font-medium tracking-[-0.03em] lg:text-7xl"
+        >
+          Roman Perk
+        </h1>
+        <p className="mt-6 text-xl leading-7">
+          Experienced Software Engineer at 2N
         </p>
-        <p className="mt-6 text-sm font-medium text-gray-400 sm:text-lg text-center max-w-2xl mx-auto">
-          Bachelor of Software Development from Unicorn University, passionate
-          about building great software. Currently at 2N as an Experienced
-          Engineer — primarily focused on frontend while also contributing to
-          the backend of My2N.
+        <p className="mt-4 max-w-[36rem] text-lg leading-8 text-body">
+          I work on the My2N platform, primarily on the frontend while also
+          contributing to the backend. I hold a Bachelor’s degree in Software
+          Development from Unicorn University and at 2N I led preparation of a
+          new company documentation website.
         </p>
-        <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => scrollTo("projects")}
-            className="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-400"
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href="mailto:perkroman@gmail.com" className="btn btn-primary">
+            Email me
+          </a>
+          <a
+            href="https://github.com/romanperk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
           >
-            View My Work
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => scrollTo("contact")}
-            className="px-6 py-2.5 border border-gray-600 hover:border-purple-500 text-gray-300 hover:text-white font-semibold rounded-lg transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-400"
-          >
-            Get In Touch
-          </motion.button>
-        </div>
-        <div className="w-full max-w-5xl mx-auto px-4 md:px-6 pt-18 sm:pt-24">
-          <InfiniteCarousel />
+            GitHub
+            <LuArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
+          </a>
         </div>
       </div>
+
+      <div className="rise [animation-delay:60ms]">
+        <CareerChart />
+      </div>
     </div>
-  );
-};
+
+    <div className="grid gap-x-8 gap-y-2 border-t border-line py-6 md:grid-cols-[12rem_1fr]">
+      <h2 className="font-mono text-[13px] leading-6 text-muted">Stack</h2>
+      <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm leading-6 text-body">
+        {stack.map((name) => (
+          <li key={name}>{name}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+);
