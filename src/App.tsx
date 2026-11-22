@@ -20,7 +20,7 @@ export default function App() {
         {t.skipToContent}
       </a>
       <NavBar />
-      <main id="main" tabIndex={-1} className="outline-none">
+      <main id="main" tabIndex={-1} className="pb-16 outline-none sm:pb-20">
         <Home />
         <Experience />
         <Projects />

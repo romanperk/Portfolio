@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 export const Section = ({ id, title, children }: { id: string; title: string; children: ReactNode }) => (
   // Spacing above is a margin, not padding, so nav links land right at the heading.
-  <section id={id} aria-labelledby={`${id}-title`} className="mt-16 sm:mt-24">
-    <div className="wrap pb-16 sm:pb-24">
+  // Only spacing above, so stacked sections don't double up; <main> pads below the last one.
+  <section id={id} aria-labelledby={`${id}-title`} className="mt-16 sm:mt-20">
+    <div className="wrap">
       <h2 id={`${id}-title`} className="mb-8 text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
         {title}
       </h2>

@@ -25,12 +25,24 @@ export const en = {
       "I work on the My2N platform, primarily on the frontend while also contributing to the backend. I hold a Bachelor’s degree in Software Development from Unicorn University and at 2N I led preparation of a new company documentation website.",
     emailMe: "Email me",
     stack: "Stack",
+    stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Tooling" },
   },
   chartCaption: "Career, drawn to scale",
   experienceTitle: "Experience",
   projects: {
     title: "Projects",
     personalProject: "Personal project",
+    atCompany: "At 2N",
+    docs: {
+      title: "Documentation website for integrators",
+      description:
+        "One site where every 2N product group documents how its products work, how to use them and the partner API. Before, each product’s docs lived separately, looked different and needed access granted to each integrator. I built the site in about a month, wrote the first draft of the My2N documentation, set out how teams should document, and now support them as they add their own.",
+    },
+    accessGroup: {
+      title: "My2N access group for all users",
+      description:
+        "A site admin can mark an access group as one for all users. Every existing user is added, and every user added to the site later joins it automatically. I delivered it end to end: frontend, backend and the database migration.",
+    },
     pokedexDescription:
       "Phone-first app for browsing Pokémon, moves, abilities and items from PokéAPI, checking type matchups, comparing stats, playing a shadow quiz and tracking a collection. It installs to the home screen as a PWA and works offline, in light and dark.",
     liveApp: "Live app",
@@ -57,6 +69,9 @@ export const en = {
     locationValue: "Prague, Czechia",
     languages: "Languages",
     languagesValue: ["Czech, native", "English, full professional", "German, elementary"],
+    copyEmail: "Copy email",
+    copied: "Copied",
+    copyFailed: "Couldn’t copy",
   },
   notFound: { title: "Page not found", home: "Home page" },
   dates: {
@@ -70,31 +85,31 @@ export const en = {
       title: "Experienced Software Engineer",
       shortTitle: "Experienced Software Engineer",
       type: "Full-time",
-      text: "While taking on increased responsibility, I progressed into the role of Experienced Engineer. In this role, I led the preparation of a new website for company documentation, which is now finished.",
+      text: "I led the preparation of the new documentation website for 2N integrators and now support other teams in documenting their products. I’m also on the AI Committee and actively push AI-assisted coding, which we do with GitHub Copilot.",
     },
     "software-engineer": {
       title: "Software Engineer",
       shortTitle: "Software Engineer",
       type: "Full-time",
-      text: "After completing my Bachelor’s degree, I expanded my skills across both the frontend and backend of My2N, with backend work mainly in Java, WebFlux and Kafka.",
+      text: "After my degree I worked across the frontend and backend of My2N, with backend work mainly in Java, WebFlux and Kafka.",
     },
     "junior-developer": {
       title: "Junior JavaScript / React Developer",
       shortTitle: "Junior JavaScript / React Developer",
       type: "Part-time",
-      text: "Frontend developer in the My2N development team, contributing to the frontend codebase of the My2N website and working with backend, QA, the Scrum Master and the Product Owner, using Jira and an Agile process of stand-ups, refinements, estimations and user story mapping. The stack was React in JavaScript, with new code in TypeScript, plus MUI, React Hook Form, Redux, Redux Toolkit, the Jest testing library and GitLab.",
+      text: "I worked on the React frontend of the My2N website, writing new code in TypeScript, in an Agile team alongside backend and QA.",
     },
     bachelor: {
       title: "Bachelor’s degree in Software Development",
       shortTitle: "Bachelor’s degree in Software Development",
       type: "Full-time study",
-      text: "Gained knowledge in React.js, JavaScript, Java, AI, project management and mathematics. Worked with colleagues on group projects, including a video library and temperature tracking with an IoT device. Successfully defended a thesis comparing Material UI, Ant Design and shadcn/ui through React implementations of a CRUD table, a multistep form and a dashboard.",
+      text: "My thesis compared Material UI, Ant Design and shadcn/ui by implementing a CRUD table, a multistep form and a dashboard in React. Group projects included a video library and IoT temperature tracking.",
     },
     promoter: {
       title: "Promoter for Acer and Microsoft at Alza.cz",
       shortTitle: "Promoter for Acer and Microsoft",
       type: "Part-time",
-      text: "Work included training on new products regarding the brand Acer, Microsoft and Intel.",
+      text: "After training on new Acer, Microsoft and Intel products, I promoted Acer and Microsoft at the Alza showroom in Holešovice, mostly helping customers choose the right laptop.",
     },
   },
 };

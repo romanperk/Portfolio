@@ -21,12 +21,24 @@ export const cs: Messages = {
       "Pracuji na platformě My2N, především na frontendu, ale přispívám i do backendu. Mám bakalářský titul v oboru Softwarový vývoj z Unicorn University a ve 2N jsem vedl přípravu nového webu s firemní dokumentací.",
     emailMe: "Napište mi",
     stack: "Technologie",
+    stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Nástroje" },
   },
   chartCaption: "Kariéra v časovém měřítku",
   experienceTitle: "Zkušenosti",
   projects: {
     title: "Projekty",
     personalProject: "Osobní projekt",
+    atCompany: "Ve 2N",
+    docs: {
+      title: "Web s dokumentací pro integrátory",
+      description:
+        "Jeden web, kde všechny produktové skupiny 2N popisují, jak jejich produkty fungují, jak je používat a jak pracovat s partnerským API. Dřív byla dokumentace každého produktu jinde, vypadala jinak a každému integrátorovi se musel zvlášť přidělovat přístup. Web jsem postavil zhruba za měsíc, napsal první verzi dokumentace My2N, nastavil, jak mají týmy dokumentovat, a teď jim s tím pomáhám.",
+    },
+    accessGroup: {
+      title: "Přístupová skupina My2N pro všechny uživatele",
+      description:
+        "Správce webu může přístupovou skupinu označit jako skupinu pro všechny uživatele. Přidají se do ní všichni stávající uživatelé a každý, koho na web později přidá, se do ní dostane automaticky. Dodal jsem to celé: frontend, backend i databázovou migraci.",
+    },
     pokedexDescription:
       "Aplikace navržená především pro telefony, ve které lze procházet Pokémony, útoky, schopnosti a předměty z PokéAPI, ověřovat typové výhody, porovnávat statistiky, hrát kvíz se stíny a spravovat sbírku. Instaluje se na domovskou obrazovku jako PWA a funguje offline, ve světlém i tmavém režimu.",
     liveApp: "Spustit aplikaci",
@@ -53,6 +65,9 @@ export const cs: Messages = {
     locationValue: "Praha, Česko",
     languages: "Jazyky",
     languagesValue: ["Čeština, rodilý mluvčí", "Angličtina, plně profesionální", "Němčina, základní"],
+    copyEmail: "Kopírovat e-mail",
+    copied: "Zkopírováno",
+    copyFailed: "Kopírování se nezdařilo",
   },
   notFound: { title: "Stránka nenalezena", home: "Domovská stránka" },
   dates: {
@@ -67,31 +82,31 @@ export const cs: Messages = {
       title: "Experienced Software Engineer",
       shortTitle: "Experienced Software Engineer",
       type: "Plný úvazek",
-      text: "S rostoucí odpovědností jsem se posunul na pozici Experienced Engineer. V této roli jsem vedl přípravu nového webu s firemní dokumentací, který je nyní hotový.",
+      text: "Vedl jsem přípravu nového webu s dokumentací pro integrátory 2N a teď pomáhám ostatním týmům s dokumentováním jejich produktů. Jsem také členem AI Committee a aktivně prosazuji programování s pomocí AI, ve 2N k tomu používáme GitHub Copilot.",
     },
     "software-engineer": {
       title: "Software Engineer",
       shortTitle: "Software Engineer",
       type: "Plný úvazek",
-      text: "Po dokončení bakalářského studia jsem rozšířil své dovednosti na frontendu i backendu My2N, přičemž na backendu jsem pracoval hlavně s Javou, WebFluxem a Kafkou.",
+      text: "Po bakalářském studiu jsem pracoval na frontendu i backendu My2N, na backendu hlavně s Javou, WebFluxem a Kafkou.",
     },
     "junior-developer": {
       title: "Junior JavaScript / React Developer",
       shortTitle: "Junior JavaScript / React Developer",
       type: "Částečný úvazek",
-      text: "Frontendový vývojář ve vývojovém týmu My2N. Přispíval jsem do frontendového kódu webu My2N a spolupracoval s backendem, QA, Scrum Masterem a Product Ownerem. Používali jsme Jiru a agilní proces se stand-upy, refinementy, odhady a user story mappingem. Stack tvořil React v JavaScriptu, nový kód v TypeScriptu, dále MUI, React Hook Form, Redux, Redux Toolkit, testovací knihovna Jest a GitLab.",
+      text: "Na webu My2N jsem pracoval na frontendu v Reactu a nový kód psal v TypeScriptu, v agilním týmu spolu s backendem a QA.",
     },
     bachelor: {
       title: "Bakalářský titul v oboru Softwarový vývoj",
       shortTitle: "Bakalářský titul v oboru Softwarový vývoj",
       type: "Prezenční studium",
-      text: "Získal jsem znalosti v oblasti React.js, JavaScriptu, Javy, AI, projektového řízení a matematiky. S kolegy jsem pracoval na skupinových projektech, mezi něž patřila videotéka a měření teploty pomocí IoT zařízení. Úspěšně jsem obhájil bakalářskou práci srovnávající Material UI, Ant Design a shadcn/ui na implementacích CRUD tabulky, vícekrokového formuláře a dashboardu v Reactu.",
+      text: "V bakalářské práci jsem srovnal Material UI, Ant Design a shadcn/ui na implementacích CRUD tabulky, vícekrokového formuláře a dashboardu v Reactu. Se spolužáky jsem pracoval na skupinových projektech, například na videotéce a měření teploty pomocí IoT zařízení.",
     },
     promoter: {
       title: "Promotér značek Acer a Microsoft v Alza.cz",
       shortTitle: "Promotér značek Acer a Microsoft",
       type: "Částečný úvazek",
-      text: "Součástí práce byla školení o nových produktech značek Acer, Microsoft a Intel.",
+      text: "Po školeních o nových produktech Acer, Microsoft a Intel jsem v showroomu Alzy v Holešovicích propagoval Acer a Microsoft a zákazníkům hlavně radil s výběrem notebooku.",
     },
   },
 };

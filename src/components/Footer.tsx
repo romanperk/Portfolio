@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { LuCheck, LuCopy } from "react-icons/lu";
 import { ExternalLink } from "./ExternalLink";
 import { t } from "../i18n";
 
@@ -20,6 +21,46 @@ const details: { label: string; value: ReactNode }[] = [
   },
 ];
 
+const email = "perkroman@gmail.com";
+
+const CopyEmail = () => {
+  const [status, setStatus] = useState<"" | "copied" | "copyFailed">("");
+
+  useEffect(() => {
+    if (!status) return;
+    const timer = setTimeout(() => setStatus(""), 2000);
+    return () => clearTimeout(timer);
+  }, [status]);
+
+  // The Clipboard API only exists in secure contexts, so the button is left out elsewhere.
+  if (!navigator.clipboard) return null;
+
+  const copy = () =>
+    navigator.clipboard.writeText(email).then(
+      () => setStatus("copied"),
+      () => setStatus("copyFailed"),
+    );
+
+  const Icon = status === "copied" ? LuCheck : LuCopy;
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={copy}
+        aria-label={t.contact.copyEmail}
+        title={t.contact.copyEmail}
+        className="flex size-10 shrink-0 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-page hover:text-ink"
+      >
+        <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
+      </button>
+      <span role="status" className="font-mono text-[13px] text-muted">
+        {status && t.contact[status]}
+      </span>
+    </>
+  );
+};
+
 export const Footer = () => (
   <footer id="contact" aria-labelledby="contact-title" className="bg-raised">
     <div className="wrap pt-12 pb-6 sm:pt-16">
@@ -28,12 +69,15 @@ export const Footer = () => (
           <h2 id="contact-title" className="text-body">
             {t.contact.title}
           </h2>
-          <a
-            href="mailto:perkroman@gmail.com"
-            className="text-link mt-2 inline-block text-2xl font-medium tracking-[-0.02em] sm:text-[2rem] sm:leading-10"
-          >
-            perkroman@gmail.com
-          </a>
+          <div className="mt-2 flex flex-wrap items-center gap-x-2">
+            <a
+              href={`mailto:${email}`}
+              className="text-link text-2xl font-medium tracking-[-0.02em] sm:text-[2rem] sm:leading-10"
+            >
+              {email}
+            </a>
+            <CopyEmail />
+          </div>
         </div>
 
         <dl className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-6 sm:grid-cols-[repeat(4,auto)] sm:justify-between xl:justify-end xl:gap-x-12">

@@ -14,18 +14,8 @@ export const CareerChart = () => {
     <figure className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
       <figcaption className="text-sm text-body">{t.chartCaption}</figcaption>
 
-      <div className="relative mt-5">
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 bottom-7">
-          {years.map((year) => (
-            <span
-              key={year}
-              className="absolute inset-y-0 w-px bg-line"
-              style={{ left: `${position(year * 12)}%` }}
-            />
-          ))}
-        </div>
-
-        <ol className="relative space-y-4">
+      <div className="mt-5">
+        <ol className="space-y-4">
           {career.map((entry) => {
             const left = position(toMonths(entry.start));
             const right = entry.end ? position(toMonths(entry.end) + 1) : 100;
@@ -48,6 +38,14 @@ export const CareerChart = () => {
                   </span>
                 </div>
                 <div aria-hidden="true" className="relative mt-1.5 h-2">
+                  {/* Year gridlines sit behind the bar only, so they never cross the label text. */}
+                  {years.map((year) => (
+                    <span
+                      key={year}
+                      className="absolute -inset-y-1 w-px bg-line"
+                      style={{ left: `${position(year * 12)}%` }}
+                    />
+                  ))}
                   <span
                     className={`absolute inset-y-0 rounded-[2px] ${barStyle}`}
                     style={{ left: `${left}%`, width: `${right - left}%` }}

@@ -32,9 +32,18 @@ const screenshots = [
 
 export const Projects = () => (
   <Section id="projects" title={t.projects.title}>
+    <Row meta={t.projects.atCompany}>
+      <h3 className="text-xl font-medium">{t.projects.docs.title}</h3>
+      <p className="mt-3 max-w-[65ch] leading-7 text-pretty text-body">{t.projects.docs.description}</p>
+      <p className="mt-3 font-mono text-[13px] leading-5 text-muted">Docusaurus</p>
+    </Row>
+    <Row meta={t.projects.atCompany}>
+      <h3 className="text-xl font-medium">{t.projects.accessGroup.title}</h3>
+      <p className="mt-3 max-w-[65ch] leading-7 text-pretty text-body">{t.projects.accessGroup.description}</p>
+    </Row>
     <Row meta={t.projects.personalProject}>
       <h3 className="text-xl font-medium">Pokédex</h3>
-      <p className="mt-3 max-w-[65ch] leading-7 text-body">
+      <p className="mt-3 max-w-[65ch] leading-7 text-pretty text-body">
         {t.projects.pokedexDescription}
       </p>
       <p className="mt-3 font-mono text-[13px] leading-5 text-muted">
@@ -47,7 +56,7 @@ export const Projects = () => (
 
       <ScreenshotGallery screenshots={screenshots} />
 
-      <p className="mt-6 max-w-[65ch] text-sm leading-5 text-muted">
+      <p className="mt-6 max-w-[65ch] text-sm leading-5 text-pretty text-muted">
         {t.projects.disclaimer}
       </p>
     </Row>

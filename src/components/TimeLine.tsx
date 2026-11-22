@@ -13,9 +13,9 @@ export const TimeLine = () => (
             </>
           }
         >
-          <h3 className="text-xl font-medium">{entry.title}</h3>
+          <h3 className="text-xl font-medium text-balance">{entry.title}</h3>
           <p className="mt-1 text-sm text-body">{entry.employer}</p>
-          <p className="mt-3 max-w-[65ch] leading-7 text-body">{entry.text}</p>
+          <p className="mt-3 max-w-[65ch] leading-7 text-pretty text-body">{entry.text}</p>
         </Row>
       </li>
     ))}
