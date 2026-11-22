@@ -29,7 +29,7 @@ Expertise first, proven by growth (recommended during init; the user was unsure 
 
 ## Capabilities and Constraints
 
-- Sections: Home (intro, contact links, stack, career chart drawn to scale), Experience (timeline with dates), Projects (descriptions, links, screenshot gallery with full screen viewer), Contact, plus a not found page.
+- Sections: Home (intro, contact links, stack, career chart drawn to scale), Experience (timeline with dates, durations and to-scale bars matching the career chart), Projects (descriptions, links, screenshot gallery with full screen viewer), Contact, plus a not found page.
 - React 19, TypeScript, Vite, Tailwind CSS 4, no router and no global state. See `CLAUDE.md` for architecture.
 - All visible text lives in `src/i18n/en.ts` and `src/i18n/cs.ts`; every wording change needs both languages, written naturally.
 - Every screenshot needs light and dark versions.
