@@ -67,11 +67,22 @@ export const today = (): YearMonth => {
 /** Months since year 0, so two dates can be subtracted or placed on a scale. */
 export const toMonths = ({ year, month }: YearMonth) => year * 12 + month - 1;
 
-export const formatRange = ({ start, end }: CareerEntry) =>
+export const formatRange = ({ start, end }: Pick<CareerEntry, "start" | "end">) =>
   `${t.dates.month(start)} – ${end ? t.dates.month(end) : t.dates.present}`;
 
 /** Counts both the first and the last month, the way LinkedIn does. */
-export const formatDuration = ({ start, end }: CareerEntry) => {
+export const formatDuration = ({ start, end }: Pick<CareerEntry, "start" | "end">) => {
   const total = toMonths(end ?? today()) - toMonths(start) + 1;
   return t.dates.duration(Math.floor(total / 12), total % 12);
+};
+
+const current = career.find((entry) => !entry.end) ?? career[0];
+
+/** The roles at the current employer, newest first: one continuous span with each promotion as a step. */
+export const currentSteps = career.filter((entry) => entry.employer === current.employer);
+export const earlier = career.filter((entry) => entry.employer !== current.employer);
+export const currentSpan = {
+  employer: current.employer,
+  start: currentSteps[currentSteps.length - 1].start,
+  end: current.end,
 };

@@ -108,8 +108,8 @@ export const NavBar = () => {
           <Logo aria-hidden="true" />
         </a>
 
-        <div className="flex items-center gap-2">
-          <ul className="mr-2 hidden items-center gap-6 sm:flex">
+        <div className="flex items-center gap-1">
+          <ul className="mr-3 hidden items-center gap-6 sm:flex">
             {navigation.map(({ name, id }) => (
               <li key={id}>
                 <a
@@ -132,7 +132,7 @@ export const NavBar = () => {
             hrefLang={t.languageSwitch.short.toLowerCase()}
             aria-label={t.languageSwitch.label}
             title={t.languageSwitch.label}
-            className="flex size-10 items-center justify-center rounded-lg font-mono text-[13px] text-body transition-colors duration-150 hover:bg-raised hover:text-ink"
+            className="flex size-11 items-center justify-center rounded-lg font-mono text-[13px] text-body transition-colors duration-150 hover:bg-raised hover:text-ink"
           >
             {t.languageSwitch.short}
           </a>
@@ -146,7 +146,7 @@ export const NavBar = () => {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
-            className="flex size-10 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-raised hover:text-ink sm:hidden"
+            className="flex size-11 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-raised hover:text-ink sm:hidden"
           >
             {menuOpen ? (
               <LuX size={18} strokeWidth={1.5} aria-hidden="true" />

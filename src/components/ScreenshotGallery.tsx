@@ -70,12 +70,12 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
 
   return (
     <>
-      {/* A swipeable row until there is room, since three side by side would be too small to read. */}
-      <ul className="-mx-6 mt-8 flex snap-x scroll-pl-6 gap-3 overflow-x-auto px-6 sm:-mx-8 sm:scroll-pl-8 sm:px-8 md:mx-0 md:scroll-pl-0 md:px-0 lg:grid lg:max-w-[48rem] lg:grid-cols-3 lg:gap-4 lg:overflow-visible">
+      {/* Small previews so the personal project stays below the work projects; the viewer shows them full size. */}
+      <ul className="mt-6 grid max-w-[26rem] grid-cols-3 gap-3">
         {screenshots.map((screenshot, index) => (
-          <li key={screenshot.caption} className="w-[70%] shrink-0 snap-start sm:w-56 lg:w-auto">
+          <li key={screenshot.caption}>
             <figure>
-              {/* The outline sits inside the button because the swipeable row clips anything outside it. */}
+              {/* The outline sits inside the button, matching the rounded border. */}
               <button
                 ref={(button) => {
                   thumbnailsRef.current[index] = button;

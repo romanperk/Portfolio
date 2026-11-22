@@ -50,7 +50,7 @@ const CopyEmail = () => {
         onClick={copy}
         aria-label={t.contact.copyEmail}
         title={t.contact.copyEmail}
-        className="flex size-10 shrink-0 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-page hover:text-ink"
+        className="flex size-11 shrink-0 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-page hover:text-ink"
       >
         <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
       </button>

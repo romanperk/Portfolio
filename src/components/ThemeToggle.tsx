@@ -39,7 +39,7 @@ export const ThemeToggle = () => {
       onClick={toggle}
       aria-label={t.theme[next]}
       title={t.theme[next]}
-      className="flex size-10 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-raised hover:text-ink"
+      className="flex size-11 items-center justify-center rounded-lg text-body transition-colors duration-150 hover:bg-raised hover:text-ink"
     >
       <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
     </button>

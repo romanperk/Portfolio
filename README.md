@@ -5,7 +5,7 @@ Personal site of Roman Perk, a software engineer at 2N working across the fronte
 ## What's on the page
 
 - **Home:** a short introduction, contact links, the tech stack and a chart of the career drawn to scale.
-- **Experience:** a timeline of jobs and education, with dates and durations. Each entry repeats its bar from the career chart on the same scale.
+- **Experience:** a timeline of jobs and education with dates and durations. The three 2N roles are grouped under one employer as promotion steps.
 - **Projects:** project descriptions and links, with screenshots that open in a full screen viewer.
 
 The site also has:

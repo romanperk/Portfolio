@@ -23,11 +23,14 @@ export const en = {
     role: "Experienced Software Engineer at 2N",
     intro:
       "I work on the My2N platform, primarily on the frontend while also contributing to the backend. I hold a Bachelor’s degree in Software Development from Unicorn University and at 2N I led preparation of a new company documentation website.",
+    core: "Core stack",
     emailMe: "Email me",
     stack: "Stack",
     stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Tooling" },
   },
-  chartCaption: "Career, drawn to scale",
+  chartCaption: (duration: string, promotions: number) =>
+    `${duration} at 2N, ${promotions} ${promotions === 1 ? "promotion" : "promotions"}`,
+  chart: { key: { current: "Current role", promotion: "Promotion", study: "Study" } },
   experienceTitle: "Experience",
   projects: {
     title: "Projects",
@@ -35,13 +38,25 @@ export const en = {
     atCompany: "At 2N",
     docs: {
       title: "Documentation website for integrators",
+      lead: "All 2N product documentation and the partner API, on one site for integrators.",
       description:
-        "One site where every 2N product group documents how its products work, how to use them and the partner API. Before, each product’s docs lived separately, looked different and needed access granted to each integrator. I built the site in about a month, wrote the first draft of the My2N documentation, set out how teams should document, and now support them as they add their own.",
+        "Before, each product’s docs lived separately, looked different and needed access granted to each integrator. I built the site in about a month, wrote the first draft of the My2N documentation, set out how teams should document, and now support them as they add their own.",
+      facts: [
+        { label: "Stack", value: "Docusaurus" },
+        { label: "Built in", value: "~1 month" },
+        { label: "For", value: "2N integrators" },
+      ],
+      diagram: { before: "A site per product", after: "One site" },
     },
     accessGroup: {
       title: "My2N access group for all users",
+      lead: "An access group every user of a site belongs to, including users added later.",
       description:
-        "A site admin can mark an access group as one for all users. Every existing user is added, and every user added to the site later joins it automatically. I delivered it end to end: frontend, backend and the database migration.",
+        "A site admin marks the group as one for all users: every existing user is added, and each new one joins automatically. I delivered it end to end.",
+      facts: [
+        { label: "Scope", value: "Frontend · Backend · DB migration" },
+        { label: "Delivery", value: "End to end" },
+      ],
     },
     pokedexDescription:
       "Phone-first app for browsing Pokémon, moves, abilities and items from PokéAPI, checking type matchups, comparing stats, playing a shadow quiz and tracking a collection. It installs to the home screen as a PWA and works offline, in light and dark.",
@@ -73,7 +88,8 @@ export const en = {
     copied: "Copied",
     copyFailed: "Couldn’t copy",
   },
-  notFound: { title: "Page not found", home: "Home page" },
+  /** `otherLanguage` names the other language's home page, so it is written in that language. */
+  notFound: { title: "Page not found", home: "Home page", otherLanguage: "Česká verze" },
   dates: {
     present: "Present",
     month: ({ year, month }: YearMonth) => `${MONTHS[month - 1]} ${year}`,

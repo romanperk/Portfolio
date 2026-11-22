@@ -19,11 +19,14 @@ export const cs: Messages = {
     role: "Experienced Software Engineer ve 2N",
     intro:
       "Pracuji na platformě My2N, především na frontendu, ale přispívám i do backendu. Mám bakalářský titul v oboru Softwarový vývoj z Unicorn University a ve 2N jsem vedl přípravu nového webu s firemní dokumentací.",
+    core: "Hlavní technologie",
     emailMe: "Napište mi",
     stack: "Technologie",
     stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Nástroje" },
   },
-  chartCaption: "Kariéra v časovém měřítku",
+  // „povýšení“ has the same form for any count.
+  chartCaption: (duration, promotions) => `${duration} ve 2N, ${promotions} povýšení`,
+  chart: { key: { current: "Současná pozice", promotion: "Povýšení", study: "Studium" } },
   experienceTitle: "Zkušenosti",
   projects: {
     title: "Projekty",
@@ -31,13 +34,25 @@ export const cs: Messages = {
     atCompany: "Ve 2N",
     docs: {
       title: "Web s dokumentací pro integrátory",
+      lead: "Veškerá dokumentace produktů 2N i partnerské API na jednom webu pro integrátory.",
       description:
-        "Jeden web, kde všechny produktové skupiny 2N popisují, jak jejich produkty fungují, jak je používat a jak pracovat s partnerským API. Dřív byla dokumentace každého produktu jinde, vypadala jinak a každému integrátorovi se musel zvlášť přidělovat přístup. Web jsem postavil zhruba za měsíc, napsal první verzi dokumentace My2N, nastavil, jak mají týmy dokumentovat, a teď jim s tím pomáhám.",
+        "Dřív byla dokumentace každého produktu jinde, vypadala jinak a každému integrátorovi se musel zvlášť přidělovat přístup. Web jsem postavil zhruba za měsíc, napsal první verzi dokumentace My2N, nastavil, jak mají týmy dokumentovat, a teď jim s tím pomáhám.",
+      facts: [
+        { label: "Technologie", value: "Docusaurus" },
+        { label: "Vývoj", value: "~1 měsíc" },
+        { label: "Pro koho", value: "Integrátoři 2N" },
+      ],
+      diagram: { before: "Web pro každý produkt", after: "Jeden web" },
     },
     accessGroup: {
       title: "Přístupová skupina My2N pro všechny uživatele",
+      lead: "Přístupová skupina, do které patří všichni uživatelé webu, i ti přidaní později.",
       description:
-        "Správce webu může přístupovou skupinu označit jako skupinu pro všechny uživatele. Přidají se do ní všichni stávající uživatelé a každý, koho na web později přidá, se do ní dostane automaticky. Dodal jsem to celé: frontend, backend i databázovou migraci.",
+        "Správce webu ji označí jako skupinu pro všechny uživatele: přidají se do ní všichni stávající a každý nový se do ní dostane automaticky. Dodal jsem to celé.",
+      facts: [
+        { label: "Rozsah", value: "Frontend · Backend · Migrace DB" },
+        { label: "Dodání", value: "Od začátku do konce" },
+      ],
     },
     pokedexDescription:
       "Aplikace navržená především pro telefony, ve které lze procházet Pokémony, útoky, schopnosti a předměty z PokéAPI, ověřovat typové výhody, porovnávat statistiky, hrát kvíz se stíny a spravovat sbírku. Instaluje se na domovskou obrazovku jako PWA a funguje offline, ve světlém i tmavém režimu.",
@@ -69,7 +84,7 @@ export const cs: Messages = {
     copied: "Zkopírováno",
     copyFailed: "Kopírování se nezdařilo",
   },
-  notFound: { title: "Stránka nenalezena", home: "Domovská stránka" },
+  notFound: { title: "Stránka nenalezena", home: "Domovská stránka", otherLanguage: "English version" },
   dates: {
     present: "současnost",
     month: ({ year, month }) => `${String(month).padStart(2, "0")}/${year}`,

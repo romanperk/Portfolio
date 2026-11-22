@@ -66,6 +66,7 @@
     scroll-padding-top: 5rem; /* 3.5rem header + 1.5rem gap above the heading */
     font-synthesis: none;
     -webkit-font-smoothing: antialiased;
+    scrollbar-color: var(--muted) var(--page);
   }
 
   body {
@@ -73,6 +74,7 @@
     background: var(--page);
     color: var(--ink);
     font-family: var(--font-sans);
+    caret-color: var(--accent-ink);
   }
 
   ::selection {
@@ -136,6 +138,12 @@
 
   .btn-primary:hover {
     background: var(--accent-hover);
+  }
+
+  /* An amber ring disappears against the amber fill, so the primary button takes an ink ring. */
+  .btn-primary:focus-visible {
+    outline-color: var(--ink);
+    outline-offset: 3px;
   }
 
   .btn-secondary {
