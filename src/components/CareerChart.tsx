@@ -15,6 +15,8 @@ import { t } from "../i18n";
 const end = today();
 const scaleStart = Math.min(...career.map((entry) => toMonths(entry.start)));
 const scaleEnd = toMonths(end) + 1;
+// Counted like formatDuration: both the first and the current month.
+const monthsAtCurrent = scaleEnd - toMonths(currentSpan.start);
 const position = (months: number) => ((months - scaleStart) / (scaleEnd - scaleStart)) * 100;
 const span = ({ start, end }: Pick<CareerEntry, "start" | "end">) => {
   const left = position(toMonths(start));
@@ -41,7 +43,7 @@ export const CareerChart = () => (
   <figure className="rounded-2xl border border-line bg-raised p-5 sm:p-6">
     {/* The headline is the chart's point; the bars below are its evidence. */}
     <figcaption className="text-xl leading-7 font-medium tracking-[-0.01em] text-balance text-ink sm:text-2xl sm:leading-8">
-      {t.chartCaption(formatDuration(currentSpan), currentSteps.length - 1)}
+      {t.chartCaption(currentSteps.length - 1, Math.floor(monthsAtCurrent / 12), monthsAtCurrent % 12)}
       <span className="sr-only">, {formatRange(currentSpan)}</span>
     </figcaption>
 

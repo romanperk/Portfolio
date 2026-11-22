@@ -55,7 +55,7 @@ export const TimeLine = () => (
                 {" · "}
                 {entry.type}
               </p>
-              <p className="mt-2 max-w-[65ch] text-sm leading-6 text-pretty text-body">{entry.text}</p>
+              <p className="mt-2 max-w-[60ch] text-sm leading-6 text-pretty text-body">{entry.text}</p>
             </li>
           ))}
         </ol>

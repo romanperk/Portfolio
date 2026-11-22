@@ -25,7 +25,16 @@ export const cs: Messages = {
     stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Nástroje" },
   },
   // „povýšení“ has the same form for any count.
-  chartCaption: (duration, promotions) => `${duration} ve 2N, ${promotions} povýšení`,
+  // Spelled out with Czech plural forms: 1 rok, 2–4 roky, 5+ let.
+  chartCaption: (promotions, years, months) => {
+    const plural = (n: number, one: string, few: string, many: string) =>
+      `${n} ${n === 1 ? one : n >= 2 && n <= 4 ? few : many}`;
+    const parts = [
+      years && plural(years, "rok", "roky", "let"),
+      months && plural(months, "měsíc", "měsíce", "měsíců"),
+    ].filter(Boolean);
+    return `${promotions} povýšení za ${parts.join(" a ")} ve 2N`;
+  },
   chart: { key: { current: "Současná pozice", promotion: "Povýšení", study: "Studium" } },
   experienceTitle: "Zkušenosti",
   experienceEarlier: "Dříve",
@@ -40,7 +49,7 @@ export const cs: Messages = {
         "Dřív byla dokumentace každého produktu jinde, vypadala jinak a každému integrátorovi se musel zvlášť přidělovat přístup. Web jsem postavil zhruba za měsíc, napsal první verzi dokumentace My2N, nastavil, jak mají týmy dokumentovat, a teď jim s tím pomáhám.",
       facts: [
         { label: "Technologie", value: "Docusaurus" },
-        { label: "Vývoj", value: "~1 měsíc" },
+        { label: "Doba vývoje", value: "~1 měsíc" },
         { label: "Pro koho", value: "Integrátoři 2N" },
       ],
       diagram: { before: "Web pro každý produkt", after: "Jeden web" },

@@ -28,8 +28,13 @@ export const en = {
     stack: "Stack",
     stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Tooling" },
   },
-  chartCaption: (duration: string, promotions: number) =>
-    `${duration} at 2N, ${promotions} ${promotions === 1 ? "promotion" : "promotions"}`,
+  chartCaption: (promotions: number, years: number, months: number) =>
+    `${promotions} ${promotions === 1 ? "promotion" : "promotions"} in ${[
+      years && `${years} ${years === 1 ? "year" : "years"}`,
+      months && `${months} ${months === 1 ? "month" : "months"}`,
+    ]
+      .filter(Boolean)
+      .join(" ")} at 2N`,
   chart: { key: { current: "Current role", promotion: "Promotion", study: "Study" } },
   experienceTitle: "Experience",
   experienceEarlier: "Earlier",

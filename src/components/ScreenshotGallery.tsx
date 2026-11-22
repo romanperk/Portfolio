@@ -70,8 +70,8 @@ export const ScreenshotGallery = ({ screenshots }: { screenshots: Screenshot[] }
 
   return (
     <>
-      {/* Previews stay smaller than the work projects above; the viewer shows them full size. */}
-      <ul className="mt-6 grid max-w-[34rem] grid-cols-3 gap-3 sm:gap-4">
+      {/* The only real UI on the page, so previews get room; the viewer shows them full size. */}
+      <ul className="mt-6 grid max-w-[42rem] grid-cols-3 gap-3 sm:gap-4">
         {screenshots.map((screenshot, index) => (
           <li key={screenshot.caption}>
             <figure>
