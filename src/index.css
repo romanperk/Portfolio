@@ -155,6 +155,16 @@
     background: var(--raised);
   }
 
+  /* For a link that sits beside a secondary button but matters less. */
+  .btn-ghost {
+    color: var(--body);
+  }
+
+  .btn-ghost:hover {
+    background: var(--raised);
+    color: var(--ink);
+  }
+
   /* Swaps images with the theme, including when the visitor overrides their system setting. */
   .only-dark {
     display: none;

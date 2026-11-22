@@ -1,25 +1,26 @@
-import { currentSpan, currentSteps, earlier, formatDuration, formatRange, type CareerEntry } from "../consts/career";
+import { currentSpan, currentSteps, earlier, formatDuration, formatRange } from "../consts/career";
+import { t } from "../i18n";
 import { Row } from "./Section";
 
-const Body = ({ entry }: { entry: CareerEntry }) => (
-  <p className="mt-3 max-w-[60ch] leading-7 text-pretty text-body">{entry.text}</p>
-);
-
 // The roles at the current employer share one row, newest first, so the promotions read
-// as one path; the career chart on the home page draws the same path to scale.
+// as one path; the career chart on the home page draws the same path to scale. Each step
+// carries its own dates, so the meta column names the employer and total time instead of
+// repeating the range. Earlier entries follow as one compact, secondary row.
 export const TimeLine = () => (
   <ol>
     <li>
       <Row
         meta={
           <>
-            <p className="text-accent-ink">{formatRange(currentSpan)}</p>
+            <h3 className="font-sans text-sm leading-5 text-ink">
+              {currentSpan.employer}
+              <span className="sr-only">, {formatRange(currentSpan)}</span>
+            </h3>
             <p>{formatDuration(currentSpan)}</p>
           </>
         }
       >
-        <h3 className="text-sm text-body">{currentSpan.employer}</h3>
-        <ol className="mt-4 space-y-8 border-l border-line">
+        <ol className="space-y-8 border-l border-line">
           {currentSteps.map((entry) => (
             <li key={entry.id} className="relative pl-6">
               <span
@@ -34,28 +35,31 @@ export const TimeLine = () => (
                 {" · "}
                 {entry.type}
               </p>
-              <Body entry={entry} />
+              <p className="mt-3 max-w-[60ch] leading-7 text-pretty text-body">{entry.text}</p>
             </li>
           ))}
         </ol>
       </Row>
     </li>
-    {earlier.map((entry) => (
-      <li key={entry.id}>
-        <Row
-          meta={
-            <>
-              <p>{formatRange(entry)}</p>
-              <p>{formatDuration(entry)}</p>
-              <p>{entry.type}</p>
-            </>
-          }
-        >
-          <h3 className="text-xl font-medium text-balance">{entry.title}</h3>
-          <p className="mt-1 text-sm text-body">{entry.employer}</p>
-          <Body entry={entry} />
-        </Row>
-      </li>
-    ))}
+    <li>
+      <Row meta={<h3 className="font-sans text-sm leading-5 text-ink">{t.experienceEarlier}</h3>}>
+        <ol className="space-y-6">
+          {earlier.map((entry) => (
+            <li key={entry.id}>
+              <h4 className="font-medium text-balance">{entry.title}</h4>
+              <p className="mt-0.5 text-sm leading-6 text-body">{entry.employer}</p>
+              <p className="font-mono text-[13px] leading-5 text-muted tabular-nums">
+                {formatRange(entry)}
+                {" · "}
+                {formatDuration(entry)}
+                {" · "}
+                {entry.type}
+              </p>
+              <p className="mt-2 max-w-[65ch] text-sm leading-6 text-pretty text-body">{entry.text}</p>
+            </li>
+          ))}
+        </ol>
+      </Row>
+    </li>
   </ol>
 );

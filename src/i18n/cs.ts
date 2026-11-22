@@ -28,6 +28,7 @@ export const cs: Messages = {
   chartCaption: (duration, promotions) => `${duration} ve 2N, ${promotions} povýšení`,
   chart: { key: { current: "Současná pozice", promotion: "Povýšení", study: "Studium" } },
   experienceTitle: "Zkušenosti",
+  experienceEarlier: "Dříve",
   projects: {
     title: "Projekty",
     personalProject: "Osobní projekt",
@@ -48,11 +49,11 @@ export const cs: Messages = {
       title: "Přístupová skupina My2N pro všechny uživatele",
       lead: "Přístupová skupina, do které patří všichni uživatelé webu, i ti přidaní později.",
       description:
-        "Správce webu ji označí jako skupinu pro všechny uživatele: přidají se do ní všichni stávající a každý nový se do ní dostane automaticky. Dodal jsem to celé.",
+        "Správce webu ji označí jako skupinu pro všechny uživatele: přidají se do ní všichni stávající a každý nový se do ní dostane automaticky. Celou funkci jsem dotáhl od začátku do konce.",
       facts: [
         { label: "Rozsah", value: "Frontend · Backend · Migrace DB" },
-        { label: "Dodání", value: "Od začátku do konce" },
       ],
+      diagram: { existing: "Stávající uživatelé", joining: "Noví, automaticky", group: "Všichni uživatelé" },
     },
     pokedexDescription:
       "Aplikace navržená především pro telefony, ve které lze procházet Pokémony, útoky, schopnosti a předměty z PokéAPI, ověřovat typové výhody, porovnávat statistiky, hrát kvíz se stíny a spravovat sbírku. Instaluje se na domovskou obrazovku jako PWA a funguje offline, ve světlém i tmavém režimu.",
@@ -83,6 +84,7 @@ export const cs: Messages = {
     copyEmail: "Kopírovat e-mail",
     copied: "Zkopírováno",
     copyFailed: "Kopírování se nezdařilo",
+    source: "Zdrojový kód tohoto webu",
   },
   notFound: { title: "Stránka nenalezena", home: "Domovská stránka", otherLanguage: "English version" },
   dates: {
@@ -96,31 +98,31 @@ export const cs: Messages = {
     "experienced-engineer": {
       title: "Experienced Software Engineer",
       shortTitle: "Experienced Software Engineer",
-      type: "Plný úvazek",
+      type: "Plný\u00a0úvazek",
       text: "Vedl jsem přípravu nového webu s dokumentací pro integrátory 2N a teď pomáhám ostatním týmům s dokumentováním jejich produktů. Jsem také členem AI Committee a aktivně prosazuji programování s pomocí AI, ve 2N k tomu používáme GitHub Copilot.",
     },
     "software-engineer": {
       title: "Software Engineer",
       shortTitle: "Software Engineer",
-      type: "Plný úvazek",
+      type: "Plný\u00a0úvazek",
       text: "Po bakalářském studiu jsem pracoval na frontendu i backendu My2N, na backendu hlavně s Javou, WebFluxem a Kafkou.",
     },
     "junior-developer": {
       title: "Junior JavaScript / React Developer",
       shortTitle: "Junior JavaScript / React Developer",
-      type: "Částečný úvazek",
+      type: "Částečný\u00a0úvazek",
       text: "Na webu My2N jsem pracoval na frontendu v Reactu a nový kód psal v TypeScriptu, v agilním týmu spolu s backendem a QA.",
     },
     bachelor: {
       title: "Bakalářský titul v oboru Softwarový vývoj",
       shortTitle: "Bakalářský titul v oboru Softwarový vývoj",
-      type: "Prezenční studium",
+      type: "Prezenční\u00a0studium",
       text: "V bakalářské práci jsem srovnal Material UI, Ant Design a shadcn/ui na implementacích CRUD tabulky, vícekrokového formuláře a dashboardu v Reactu. Se spolužáky jsem pracoval na skupinových projektech, například na videotéce a měření teploty pomocí IoT zařízení.",
     },
     promoter: {
       title: "Promotér značek Acer a Microsoft v Alza.cz",
       shortTitle: "Promotér značek Acer a Microsoft",
-      type: "Částečný úvazek",
+      type: "Částečný\u00a0úvazek",
       text: "Po školeních o nových produktech Acer, Microsoft a Intel jsem v showroomu Alzy v Holešovicích propagoval Acer a Microsoft a zákazníkům hlavně radil s výběrem notebooku.",
     },
   },

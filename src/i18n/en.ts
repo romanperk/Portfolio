@@ -32,6 +32,7 @@ export const en = {
     `${duration} at 2N, ${promotions} ${promotions === 1 ? "promotion" : "promotions"}`,
   chart: { key: { current: "Current role", promotion: "Promotion", study: "Study" } },
   experienceTitle: "Experience",
+  experienceEarlier: "Earlier",
   projects: {
     title: "Projects",
     personalProject: "Personal project",
@@ -55,8 +56,8 @@ export const en = {
         "A site admin marks the group as one for all users: every existing user is added, and each new one joins automatically. I delivered it end to end.",
       facts: [
         { label: "Scope", value: "Frontend · Backend · DB migration" },
-        { label: "Delivery", value: "End to end" },
       ],
+      diagram: { existing: "Existing users", joining: "New users, automatically", group: "All users" },
     },
     pokedexDescription:
       "Phone-first app for browsing Pokémon, moves, abilities and items from PokéAPI, checking type matchups, comparing stats, playing a shadow quiz and tracking a collection. It installs to the home screen as a PWA and works offline, in light and dark.",
@@ -87,6 +88,7 @@ export const en = {
     copyEmail: "Copy email",
     copied: "Copied",
     copyFailed: "Couldn’t copy",
+    source: "Source of this site",
   },
   /** `otherLanguage` names the other language's home page, so it is written in that language. */
   notFound: { title: "Page not found", home: "Home page", otherLanguage: "Česká verze" },

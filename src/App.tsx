@@ -22,8 +22,8 @@ export default function App() {
       <NavBar />
       <main id="main" tabIndex={-1} className="pb-16 outline-none sm:pb-20">
         <Home />
-        <Experience />
         <Projects />
+        <Experience />
       </main>
       <Footer />
       <Analytics />

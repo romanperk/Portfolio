@@ -64,20 +64,16 @@ const CopyEmail = () => {
 export const Footer = () => (
   <footer id="contact" aria-labelledby="contact-title" className="bg-raised">
     <div className="wrap pt-12 pb-6 sm:pt-16">
-      <div className="grid gap-x-16 gap-y-10 xl:grid-cols-[auto_1fr]">
-        <div>
-          <h2 id="contact-title" className="text-body">
-            {t.contact.title}
-          </h2>
-          <div className="mt-2 flex flex-wrap items-center gap-x-2">
-            <a
-              href={`mailto:${email}`}
-              className="text-link text-2xl font-medium tracking-[-0.02em] sm:text-[2rem] sm:leading-10"
-            >
-              {email}
-            </a>
-            <CopyEmail />
-          </div>
+      {/* Same heading as the other sections, so every nav link lands on one. */}
+      <h2 id="contact-title" className="mb-8 text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+        {t.contact.title}
+      </h2>
+      <div className="grid gap-x-16 gap-y-10 xl:grid-cols-[auto_1fr] xl:items-center">
+        <div className="flex flex-wrap items-center gap-x-2">
+          <a href={`mailto:${email}`} className="text-link text-xl font-medium sm:text-2xl">
+            {email}
+          </a>
+          <CopyEmail />
         </div>
 
         <dl className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-6 sm:grid-cols-[repeat(4,auto)] sm:justify-between xl:justify-end xl:gap-x-12">
@@ -90,7 +86,10 @@ export const Footer = () => (
         </dl>
       </div>
 
-      <p className="mt-12 border-t border-line pt-6 text-sm text-muted">&copy; {new Date().getFullYear()} Roman Perk</p>
+      <div className="mt-12 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-line pt-6 text-sm text-muted">
+        <p>&copy; {new Date().getFullYear()} Roman Perk</p>
+        <ExternalLink href="https://github.com/romanperk/Portfolio">{t.contact.source}</ExternalLink>
+      </div>
     </div>
   </footer>
 );

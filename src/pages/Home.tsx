@@ -53,7 +53,7 @@ export const Home = () => (
             href="https://www.linkedin.com/in/roman-perk/"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-secondary"
+            className="btn btn-ghost"
           >
             LinkedIn
             <LuArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
@@ -61,11 +61,11 @@ export const Home = () => (
         </div>
       </div>
 
-      <div className="mt-12 grid gap-x-8 gap-y-2 border-t border-line py-6 md:grid-cols-[12rem_1fr] lg:order-last lg:col-span-2 lg:mt-16">
-        <h2 className="font-mono text-[13px] leading-6 text-muted">{t.home.stack}</h2>
-        <dl className="grid gap-y-1 text-sm leading-6">
+      <div className="mt-12 border-t border-line py-6 lg:order-last lg:col-span-2 lg:mt-16">
+        <h2 className="text-[15px] leading-6 font-medium">{t.home.stack}</h2>
+        <dl className="mt-3 grid gap-y-1 text-sm leading-6">
           {stack.map(([group, names]) => (
-            <div key={group} className="grid grid-cols-[5.5rem_1fr] gap-x-4">
+            <div key={group} className="grid grid-cols-[5.5rem_1fr] gap-x-4 md:grid-cols-[12rem_1fr] md:gap-x-8">
               <dt className="font-mono text-[13px] text-muted">{t.home.stackGroups[group]}</dt>
               <dd>
                 <ul className="flex flex-wrap gap-x-4">

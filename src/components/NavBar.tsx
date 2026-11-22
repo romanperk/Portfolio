@@ -6,8 +6,8 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navigation = [
   { name: t.nav.home, id: "home" },
-  { name: t.nav.experience, id: "experience" },
   { name: t.nav.projects, id: "projects" },
+  { name: t.nav.experience, id: "experience" },
   { name: t.nav.contact, id: "contact" },
 ];
 
