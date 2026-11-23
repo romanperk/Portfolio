@@ -70,7 +70,7 @@ export const Footer = () => (
       </h2>
       <div className="grid gap-x-16 gap-y-10 xl:grid-cols-[auto_1fr] xl:items-center">
         <div className="flex flex-wrap items-center gap-x-2">
-          <a href={`mailto:${email}`} className="text-link text-xl font-medium sm:text-2xl">
+          <a href={`mailto:${email}`} className="text-link inline-flex min-h-11 items-center text-xl font-medium sm:text-2xl">
             {email}
           </a>
           <CopyEmail />

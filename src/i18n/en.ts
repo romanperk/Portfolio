@@ -20,33 +20,31 @@ export const en = {
   languageSwitch: { short: "CS", label: "Přepnout do češtiny" },
   theme: { light: "Switch to light theme", dark: "Switch to dark theme" },
   home: {
-    role: "Experienced Software Engineer at 2N",
+    role: "Experienced Software Engineer at\u00a02N",
     intro:
-      "I work on the My2N platform, primarily on the frontend while also contributing to the backend. I hold a Bachelor’s degree in Software Development from Unicorn University and at 2N I led preparation of a new company documentation website.",
+      "I work on My2N, the cloud platform of 2N, an Axis company that makes IP intercoms and access control. I develop across the full stack, and I hold a Bachelor’s degree in Software Development from Unicorn University.",
     core: "Core stack",
     emailMe: "Email me",
     stack: "Stack",
     stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Tooling" },
   },
-  chartCaption: (promotions: number, years: number, months: number) =>
-    `${promotions} ${promotions === 1 ? "promotion" : "promotions"} in ${[
-      years && `${years} ${years === 1 ? "year" : "years"}`,
-      months && `${months} ${months === 1 ? "month" : "months"}`,
-    ]
-      .filter(Boolean)
-      .join(" ")} at 2N`,
-  chart: { key: { current: "Current role", promotion: "Promotion", study: "Study" } },
+  // The time from joining 2N to the latest promotion, so the headline shows the pace.
+  chartCaption: (promotions: number, months: number) =>
+    `${promotions} ${promotions === 1 ? "promotion" : "promotions"} in ${months} ${months === 1 ? "month" : "months"} at\u00a02N`,
   experienceTitle: "Experience",
   experienceEarlier: "Earlier",
   projects: {
     title: "Projects",
     personalProject: "Personal project",
     atCompany: "At 2N",
+    howItWorks: "How it works",
     docs: {
       title: "Documentation website for integrators",
       lead: "All 2N product documentation and the partner API, on one site for integrators.",
       description:
-        "Before, each product’s docs lived separately, looked different and needed access granted to each integrator. I built the site in about a month, wrote the first draft of the My2N documentation, set out how teams should document, and now support them as they add their own.",
+        "Before, each product’s docs lived separately, looked different and needed access granted to each integrator. I designed and built the site in about a month, wrote the first draft of the My2N documentation, set out how teams should document, and now support them as they add their own.",
+      details:
+        "The pages are MDX: Markdown that can use React components, which the site uses where plain text isn’t enough. That makes the codebase faster and easier to work with, for developers and product people alike. The API reference isn’t written by hand: a script generates it from the YAML documents with an npm package.",
       facts: [
         { label: "Stack", value: "Docusaurus" },
         { label: "Built in", value: "~1 month" },
@@ -56,11 +54,13 @@ export const en = {
     },
     accessGroup: {
       title: "My2N access group for all users",
-      lead: "An access group every user of a site belongs to, including users added later.",
+      lead: "An access group that every user at a site belongs to, including users added later.",
       description:
         "A site admin marks the group as one for all users: every existing user is added, and each new one joins automatically. I delivered it end to end.",
+      details:
+        "It’s built on group inheritance: each site has a hidden group of its users that the target group inherits from, so members are linked, not copied. Switching the mode on fetches the site’s users from another microservice, creates any missing accesses and sends credentials to the group’s devices. Switching it off removes the link and revokes those credentials, while members added by hand before stay in the group. New users join automatically, driven by three Kafka events.",
       facts: [
-        { label: "Scope", value: "Frontend · Backend · DB migration" },
+        { label: "Scope", value: "Frontend · Backend · Database" },
       ],
       diagram: { existing: "Existing users", joining: "New users, automatically", group: "All users" },
     },
@@ -108,7 +108,7 @@ export const en = {
       title: "Experienced Software Engineer",
       shortTitle: "Experienced Software Engineer",
       type: "Full-time",
-      text: "I led the preparation of the new documentation website for 2N integrators and now support other teams in documenting their products. I’m also on the AI Committee and actively push AI-assisted coding, which we do with GitHub Copilot.",
+      text: "I now work across the full stack with more responsibility. I joined the backend team planning a new backend application and set up its starting codebase. I’m also on the AI Committee and actively push AI-assisted coding, which we do with GitHub Copilot, and I help other teams document their products on the docs site I built.",
     },
     "software-engineer": {
       title: "Software Engineer",

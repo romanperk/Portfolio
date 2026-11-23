@@ -6,7 +6,7 @@ import { t } from "../i18n";
 const core = ["React", "TypeScript", "Java", "Kafka"];
 
 const stack: [keyof typeof t.home.stackGroups, string[]][] = [
-  ["frontend", ["React", "JavaScript", "TypeScript", "Redux", "Material UI", "React Hook Form", "Tailwind CSS", "Jest"]],
+  ["frontend", ["React", "JavaScript", "TypeScript", "Material UI", "Tailwind CSS"]],
   ["backend", ["Java", "Kotlin", "Spring WebFlux", "Kafka"]],
   ["tooling", ["AWS", "GitHub", "GitLab", "GitHub Copilot", "Claude Code"]],
 ];
@@ -22,7 +22,8 @@ export const Home = () => (
         >
           Roman Perk
         </h1>
-        <p className="mt-6 text-xl leading-7">{t.home.role}</p>
+        {/* Role and stack come first, so the role outranks the chart headline beside it. */}
+        <p className="mt-6 text-xl leading-7 font-medium tracking-[-0.01em] sm:text-2xl sm:leading-8">{t.home.role}</p>
         <ul aria-label={t.home.core} className="mt-2 flex flex-wrap font-mono text-sm leading-6 text-body">
           {core.map((name, index) => (
             <li key={name}>

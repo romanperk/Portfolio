@@ -1,15 +1,27 @@
 import type { ReactNode } from "react";
 
-export const Section = ({ id, title, children }: { id: string; title: string; children: ReactNode }) => (
+export const Section = ({
+  id,
+  title,
+  children,
+  band,
+}: {
+  id: string;
+  title: string;
+  children: ReactNode;
+  /** Full-width content after the rest of the section, outside the page column. */
+  band?: ReactNode;
+}) => (
   // Spacing above is a margin, not padding, so nav links land right at the heading.
   // Only spacing above, so stacked sections don't double up; <main> pads below the last one.
-  <section id={id} aria-labelledby={`${id}-title`} className="mt-16 sm:mt-20">
+  <section id={id} aria-labelledby={`${id}-title`} className="mt-16 sm:mt-24">
     <div className="wrap">
-      <h2 id={`${id}-title`} className="mb-8 text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+      <h2 id={`${id}-title`} className="section-title mb-8 sm:mb-10">
         {title}
       </h2>
       {children}
     </div>
+    {band}
   </section>
 );
 

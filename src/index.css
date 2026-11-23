@@ -188,6 +188,31 @@
     display: block;
   }
 
+  /* Section headings carry the timeline's amber square, so the scroll has one recurring mark. */
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  @media (min-width: 40rem) {
+    .section-title {
+      font-size: 3rem;
+    }
+  }
+
+  .section-title::before {
+    content: "";
+    display: inline-block;
+    width: 0.2em;
+    height: 0.2em;
+    margin-right: 0.3em;
+    vertical-align: 0.12em;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
   .text-link {
     text-decoration-line: underline;
     text-decoration-color: var(--line);
@@ -213,12 +238,109 @@
   .fade-down {
     animation: fade-down 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+
+  .btn > svg,
+  a[target="_blank"] > svg {
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn:hover > svg,
+  a[target="_blank"]:hover > svg {
+    transform: translate(2px, -2px);
+  }
+
+  /*
+   * Project diagrams play once: JS sets data-stage="ready" as one scrolls near (parts wait in
+   * their start state) and "play" once most of it is on screen. Without JS they're just drawn.
+   */
+  [data-stage] .play-in {
+    animation: play-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both paused;
+    animation-delay: calc(var(--delay, 0) * 1ms);
+  }
+
+  [data-stage="play"] .play-in {
+    animation-play-state: running;
+  }
+
+  /*
+   * The hero chart's pen, turned vertical: as the visitor scrolls the experience timeline, an ink
+   * square rides its line level with the middle of the screen, inking the path behind it, and each
+   * role's marker lights up as the pen passes. Scroll-driven, so it needs no JS, and browsers
+   * without it show the plain line with every marker lit.
+   */
+  @supports (animation-timeline: view()) {
+    .pen-track {
+      view-timeline: --career block;
+    }
+
+    .pen-track::before,
+    .pen-track::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --career;
+      /* From the list's top reaching mid-screen to its bottom reaching mid-screen. */
+      animation-range: cover 50vh cover calc(100% - 50vh);
+    }
+
+    .pen-track::before {
+      left: -1px;
+      width: 1px;
+      background: var(--ink);
+      transform-origin: top;
+      animation-name: ink-line;
+    }
+
+    /* Full height with the square at its foot, so translating by its own height moves the square top to bottom. */
+    .pen-track::after {
+      left: -3px;
+      width: 7px;
+      background: linear-gradient(var(--ink), var(--ink)) bottom / 7px 7px no-repeat;
+      animation-name: pen;
+    }
+
+    .step-marker {
+      animation: step-on linear both;
+      animation-timeline: view();
+      animation-range: cover 42% cover 50%;
+    }
+  }
 }
 
 @keyframes rise {
   from {
     opacity: 0;
     transform: translateY(8px);
+  }
+}
+
+@keyframes play-in {
+  from {
+    opacity: 0;
+    transform: var(--from, scale(0));
+  }
+}
+
+@keyframes ink-line {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes pen {
+  from {
+    transform: translateY(-100%);
+  }
+}
+
+/* Unreached markers stay findable: smaller and softer, never gone. */
+@keyframes step-on {
+  from {
+    opacity: 0.5;
+    transform: scale(0.6);
   }
 }
 

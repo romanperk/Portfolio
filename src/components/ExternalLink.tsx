@@ -4,7 +4,8 @@ import { LuArrowUpRight } from "react-icons/lu";
 export const ExternalLink = ({
   href,
   children,
-  className = "text-link inline-flex items-center gap-1",
+  // 44px tall on phones, so the footer's text links are comfortable tap targets.
+  className = "text-link inline-flex items-center gap-1 max-sm:min-h-11",
 }: {
   href: string;
   children: ReactNode;

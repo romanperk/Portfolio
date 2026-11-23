@@ -16,37 +16,33 @@ export const cs: Messages = {
   languageSwitch: { short: "EN", label: "Switch to English" },
   theme: { light: "Přepnout na světlý motiv", dark: "Přepnout na tmavý motiv" },
   home: {
-    role: "Experienced Software Engineer ve 2N",
+    role: "Experienced Software Engineer ve\u00a02N",
     intro:
-      "Pracuji na platformě My2N, především na frontendu, ale přispívám i do backendu. Mám bakalářský titul v oboru Softwarový vývoj z Unicorn University a ve 2N jsem vedl přípravu nového webu s firemní dokumentací.",
+      "Pracuji na My2N, cloudové platformě společnosti 2N, která patří do skupiny Axis a vyrábí IP interkomy a přístupové systémy. Vyvíjím napříč celým stackem a mám bakalářský titul v oboru Softwarový vývoj z Unicorn University.",
     core: "Hlavní technologie",
     emailMe: "Napište mi",
     stack: "Technologie",
     stackGroups: { frontend: "Frontend", backend: "Backend", tooling: "Nástroje" },
   },
-  // „povýšení“ has the same form for any count.
-  // Spelled out with Czech plural forms: 1 rok, 2–4 roky, 5+ let.
-  chartCaption: (promotions, years, months) => {
-    const plural = (n: number, one: string, few: string, many: string) =>
-      `${n} ${n === 1 ? one : n >= 2 && n <= 4 ? few : many}`;
-    const parts = [
-      years && plural(years, "rok", "roky", "let"),
-      months && plural(months, "měsíc", "měsíce", "měsíců"),
-    ].filter(Boolean);
-    return `${promotions} povýšení za ${parts.join(" a ")} ve 2N`;
+  // „povýšení“ has the same form for any count. Months use Czech plural forms: 1 měsíc, 2–4 měsíce, 5+ měsíců.
+  chartCaption: (promotions, months) => {
+    const unit = months === 1 ? "měsíc" : months >= 2 && months <= 4 ? "měsíce" : "měsíců";
+    return `${promotions} povýšení za ${months} ${unit} ve\u00a02N`;
   },
-  chart: { key: { current: "Současná pozice", promotion: "Povýšení", study: "Studium" } },
   experienceTitle: "Zkušenosti",
   experienceEarlier: "Dříve",
   projects: {
     title: "Projekty",
     personalProject: "Osobní projekt",
     atCompany: "Ve 2N",
+    howItWorks: "Jak to funguje",
     docs: {
       title: "Web s dokumentací pro integrátory",
       lead: "Veškerá dokumentace produktů 2N i partnerské API na jednom webu pro integrátory.",
       description:
-        "Dřív byla dokumentace každého produktu jinde, vypadala jinak a každému integrátorovi se musel zvlášť přidělovat přístup. Web jsem postavil zhruba za měsíc, napsal první verzi dokumentace My2N, nastavil, jak mají týmy dokumentovat, a teď jim s tím pomáhám.",
+        "Dřív byla dokumentace každého produktu jinde, vypadala jinak a každému integrátorovi se musel zvlášť přidělovat přístup. Web jsem navrhl a postavil zhruba za měsíc, napsal první verzi dokumentace My2N, nastavil, jak mají týmy dokumentovat, a teď jim s tím pomáhám.",
+      details:
+        "Stránky jsou v MDX, tedy v Markdownu, do kterého lze vložit React komponenty, a web je používá tam, kde prostý text nestačí. Díky tomu se v kódu pracuje rychleji a snáz, a to vývojářům i produktovému týmu. Referenci API nikdo nepíše ručně, generuje ji skript s npm balíčkem z YAML dokumentů.",
       facts: [
         { label: "Technologie", value: "Docusaurus" },
         { label: "Doba vývoje", value: "~1 měsíc" },
@@ -56,11 +52,13 @@ export const cs: Messages = {
     },
     accessGroup: {
       title: "Přístupová skupina My2N pro všechny uživatele",
-      lead: "Přístupová skupina, do které patří všichni uživatelé webu, i ti přidaní později.",
+      lead: "Přístupová skupina, do které patří všichni uživatelé lokality, i ti přidaní později.",
       description:
-        "Správce webu ji označí jako skupinu pro všechny uživatele: přidají se do ní všichni stávající a každý nový se do ní dostane automaticky. Celou funkci jsem dotáhl od začátku do konce.",
+        "Správce lokality ji označí jako skupinu pro všechny uživatele: přidají se do ní všichni stávající a každý nový se do ní dostane automaticky. Celou funkci jsem dotáhl od začátku do konce.",
+      details:
+        "Stojí na dědění skupin: každá lokalita má skrytou skupinu svých uživatelů, ze které cílová skupina dědí, takže členové se propojují, nekopírují. Zapnutí režimu načte uživatele lokality z jiné mikroslužby, vytvoří chybějící přístupy a pošle přístupové údaje na zařízení skupiny. Vypnutí propojení zruší a tyto údaje odvolá, ručně přidaní členové ve skupině zůstanou. Noví uživatelé se přidávají automaticky na základě tří událostí z Kafky.",
       facts: [
-        { label: "Rozsah", value: "Frontend · Backend · Migrace DB" },
+        { label: "Rozsah", value: "Frontend · Backend · Databáze" },
       ],
       diagram: { existing: "Stávající uživatelé", joining: "Noví, automaticky", group: "Všichni uživatelé" },
     },
@@ -108,7 +106,7 @@ export const cs: Messages = {
       title: "Experienced Software Engineer",
       shortTitle: "Experienced Software Engineer",
       type: "Plný\u00a0úvazek",
-      text: "Vedl jsem přípravu nového webu s dokumentací pro integrátory 2N a teď pomáhám ostatním týmům s dokumentováním jejich produktů. Jsem také členem AI Committee a aktivně prosazuji programování s pomocí AI, ve 2N k tomu používáme GitHub Copilot.",
+      text: "Teď pracuji napříč celým stackem a s větší odpovědností. Přidal jsem se k backendovému týmu, který plánuje novou backendovou aplikaci, a připravil jsem její výchozí kód. Jsem také členem AI Committee a aktivně prosazuji programování s pomocí AI, ve 2N k tomu používáme GitHub Copilot. Ostatním týmům pomáhám dokumentovat jejich produkty na webu, který jsem postavil.",
     },
     "software-engineer": {
       title: "Software Engineer",

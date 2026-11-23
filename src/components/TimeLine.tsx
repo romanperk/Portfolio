@@ -11,21 +11,22 @@ export const TimeLine = () => (
     <li>
       <Row
         meta={
-          <>
-            <h3 className="font-sans text-sm leading-5 text-ink">
-              {currentSpan.employer}
+          // Stays beside the roles while they scroll past on wide screens.
+          <div className="md:sticky md:top-20">
+            <h3 className="text-ink">
+              {currentSpan.shortName}
               <span className="sr-only">, {formatRange(currentSpan)}</span>
             </h3>
             <p>{formatDuration(currentSpan)}</p>
-          </>
+          </div>
         }
       >
-        <ol className="space-y-8 border-l border-line">
+        <ol className="pen-track relative space-y-8 border-l border-line">
           {currentSteps.map((entry) => (
             <li key={entry.id} className="relative pl-6">
               <span
                 aria-hidden="true"
-                className={`absolute top-2.5 -left-[3px] size-[7px] rounded-[2px] ${entry.end ? "bg-muted" : "bg-accent"}`}
+                className={`step-marker absolute top-2.5 -left-[3px] size-[7px] rounded-[2px] ${entry.end ? "bg-muted" : "bg-accent"}`}
               />
               <h4 className="text-xl font-medium text-balance">{entry.title}</h4>
               <p className="mt-1 font-mono text-[13px] leading-5 text-muted tabular-nums">
@@ -42,7 +43,7 @@ export const TimeLine = () => (
       </Row>
     </li>
     <li>
-      <Row meta={<h3 className="font-sans text-sm leading-5 text-ink">{t.experienceEarlier}</h3>}>
+      <Row meta={<h3 className="text-ink">{t.experienceEarlier}</h3>}>
         <ol className="space-y-6">
           {earlier.map((entry) => (
             <li key={entry.id}>

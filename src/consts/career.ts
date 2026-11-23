@@ -83,6 +83,8 @@ export const currentSteps = career.filter((entry) => entry.employer === current.
 export const earlier = career.filter((entry) => entry.employer !== current.employer);
 export const currentSpan = {
   employer: current.employer,
+  /** What the page calls the employer; the legal name above stays for the record. */
+  shortName: "2N",
   start: currentSteps[currentSteps.length - 1].start,
   end: current.end,
 };

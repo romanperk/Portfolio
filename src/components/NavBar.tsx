@@ -103,7 +103,7 @@ export const NavBar = () => {
           href="#home"
           onClick={() => goTo("home")}
           aria-label={t.nav.logo}
-          className="text-ink [&_svg]:h-6 [&_svg]:w-auto"
+          className="flex h-11 items-center text-ink [&_svg]:h-6 [&_svg]:w-auto"
         >
           <Logo aria-hidden="true" />
         </a>
