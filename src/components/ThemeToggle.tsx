@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { LuMoon, LuSun } from "react-icons/lu";
 import { t } from "../i18n";
 
@@ -7,23 +7,27 @@ type Theme = "light" | "dark";
 const systemTheme = (): Theme => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 const chosenTheme = () => document.documentElement.dataset.theme as Theme | undefined;
 
-export const ThemeToggle = () => {
-  const [theme, setTheme] = useState<Theme>(() => chosenTheme() ?? systemTheme());
-  const next: Theme = theme === "dark" ? "light" : "dark";
+// Follows the OS until the visitor picks a theme, and any change to `data-theme` on <html>.
+const subscribe = (onChange: () => void) => {
+  const query = window.matchMedia("(prefers-color-scheme: dark)");
+  const observer = new MutationObserver(onChange);
+  query.addEventListener("change", onChange);
+  observer.observe(document.documentElement, { attributeFilter: ["data-theme"] });
+  return () => {
+    query.removeEventListener("change", onChange);
+    observer.disconnect();
+  };
+};
+const currentTheme = () => chosenTheme() ?? systemTheme();
+// The prerendered HTML can't know the theme; React swaps in the real one right after hydrating.
+const serverTheme = (): Theme => "light";
 
-  // Keep following the OS until the visitor has picked a theme themselves.
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      if (!chosenTheme()) setTheme(systemTheme());
-    };
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-  }, []);
+export const ThemeToggle = () => {
+  const theme = useSyncExternalStore(subscribe, currentTheme, serverTheme);
+  const next: Theme = theme === "dark" ? "light" : "dark";
 
   const toggle = () => {
     document.documentElement.dataset.theme = next;
-    setTheme(next);
     try {
       localStorage.setItem("theme", next);
     } catch {

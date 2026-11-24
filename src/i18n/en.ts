@@ -4,7 +4,7 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 export const en = {
   metaDescription:
-    "Roman Perk, software engineer at 2N working across the frontend and backend of the My2N platform.",
+    "Roman Perk, Experienced Software Engineer at 2N in Prague, building the My2N cloud platform across the frontend and backend with React, TypeScript, Java and Kafka.",
   skipToContent: "Skip to content",
   nav: {
     label: "Main",

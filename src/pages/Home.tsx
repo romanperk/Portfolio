@@ -1,15 +1,8 @@
 import { LuArrowUpRight } from "react-icons/lu";
 import { CareerChart } from "../components/CareerChart";
+import { links } from "../consts/links";
+import { core, stack } from "../consts/stack";
 import { t } from "../i18n";
-
-/** Named under the role and set in full ink in the stack list. Every one also appears in `stack`. */
-const core = ["React", "TypeScript", "Java", "Kafka"];
-
-const stack: [keyof typeof t.home.stackGroups, string[]][] = [
-  ["frontend", ["React", "JavaScript", "TypeScript", "Material UI", "Tailwind CSS"]],
-  ["backend", ["Java", "Kotlin", "Spring WebFlux", "Kafka"]],
-  ["tooling", ["AWS", "GitHub", "GitLab", "GitHub Copilot", "Claude Code"]],
-];
 
 // DOM order is the phone order (intro, stack, chart). On wide screens the chart moves up beside the intro.
 export const Home = () => (
@@ -38,11 +31,11 @@ export const Home = () => (
         </ul>
         <p className="mt-5 max-w-[36rem] text-lg leading-8 text-pretty text-body">{t.home.intro}</p>
         <div className="mt-8 grid grid-cols-2 gap-2 sm:flex sm:gap-3">
-          <a href="mailto:perkroman@gmail.com" className="btn btn-primary col-span-2">
+          <a href={`mailto:${links.email}`} className="btn btn-primary col-span-2">
             {t.home.emailMe}
           </a>
           <a
-            href="https://github.com/romanperk"
+            href={links.github}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
@@ -51,7 +44,7 @@ export const Home = () => (
             <LuArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
           </a>
           <a
-            href="https://www.linkedin.com/in/roman-perk/"
+            href={links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-ghost"

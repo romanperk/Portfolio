@@ -59,6 +59,9 @@ const entries: Omit<CareerEntry, keyof Messages["career"][CareerId]>[] = [
 /** The experience list and the career chart both read from here. */
 export const career: CareerEntry[] = entries.map((entry) => ({ ...entry, ...t.career[entry.id] }));
 
+// shortcut: the prerendered HTML uses the build month, so once a month passes without a deploy the
+// durations differ and React re-renders the page on the client (invisible, logs one recoverable
+// error). Redeploy monthly, or render dates after hydration, if that ever matters.
 export const today = (): YearMonth => {
   const now = new Date();
   return { year: now.getFullYear(), month: now.getMonth() + 1 };

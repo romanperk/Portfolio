@@ -1,11 +1,12 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
 import { LuCheck, LuCopy } from "react-icons/lu";
 import { ExternalLink } from "./ExternalLink";
+import { links } from "../consts/links";
 import { t } from "../i18n";
 
 const details: { label: string; value: ReactNode }[] = [
-  { label: "GitHub", value: <ExternalLink href="https://github.com/romanperk">romanperk</ExternalLink> },
-  { label: "LinkedIn", value: <ExternalLink href="https://www.linkedin.com/in/roman-perk/">roman-perk</ExternalLink> },
+  { label: "GitHub", value: <ExternalLink href={links.github}>romanperk</ExternalLink> },
+  { label: "LinkedIn", value: <ExternalLink href={links.linkedin}>roman-perk</ExternalLink> },
   { label: t.contact.location, value: t.contact.locationValue },
   {
     label: t.contact.languages,
@@ -21,7 +22,9 @@ const details: { label: string; value: ReactNode }[] = [
   },
 ];
 
-const email = "perkroman@gmail.com";
+const email = links.email;
+
+const noSubscribe = () => () => {};
 
 const CopyEmail = () => {
   const [status, setStatus] = useState<"" | "copied" | "copyFailed">("");
@@ -33,7 +36,9 @@ const CopyEmail = () => {
   }, [status]);
 
   // The Clipboard API only exists in secure contexts, so the button is left out elsewhere.
-  if (!navigator.clipboard) return null;
+  // Checked after hydrating, since the prerendered HTML can't know.
+  const canCopy = useSyncExternalStore(noSubscribe, () => Boolean(navigator.clipboard), () => false);
+  if (!canCopy) return null;
 
   const copy = () =>
     navigator.clipboard.writeText(email).then(
@@ -88,7 +93,7 @@ export const Footer = () => (
 
       <div className="mt-12 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-line pt-6 text-sm text-muted">
         <p>&copy; {new Date().getFullYear()} Roman Perk</p>
-        <ExternalLink href="https://github.com/romanperk/Portfolio">{t.contact.source}</ExternalLink>
+        <ExternalLink href={links.siteSource}>{t.contact.source}</ExternalLink>
       </div>
     </div>
   </footer>
