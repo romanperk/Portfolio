@@ -1,7 +1,7 @@
 import type { Messages } from "./en";
 
 export const cs: Messages = {
-  metaDescription: "Roman Perk, softwarový inženýr ve 2N, který pracuje na frontendu i backendu platformy My2N.",
+  metaDescription: "Roman Perk, Experienced Software Engineer ve 2N v Praze. Na cloudové platformě My2N pracuje na frontendu i backendu s Reactem, TypeScriptem, Javou a Kafkou.",
   skipToContent: "Přeskočit na obsah",
   nav: {
     label: "Hlavní",

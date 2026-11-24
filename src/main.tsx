@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { locale, t } from './i18n'
@@ -7,8 +7,13 @@ import { locale, t } from './i18n'
 document.documentElement.lang = locale
 document.querySelector('meta[name="description"]')?.setAttribute('content', t.metaDescription)
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+
+// Built pages arrive prerendered by scripts/prerender.js; the dev server sends an empty root.
+if (root.firstChild) hydrateRoot(root, app)
+else createRoot(root).render(app)

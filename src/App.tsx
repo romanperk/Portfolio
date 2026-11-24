@@ -9,7 +9,7 @@ import { Projects } from "./pages/Projects";
 
 export default function App() {
   // The site is one page per language, and vercel.json sends every other path here too.
-  if ((window.location.pathname.replace(/\/+$/, "") || "/") !== homePath) return <NotFound />;
+  if ((location.pathname.replace(/\/+$/, "") || "/") !== homePath) return <NotFound />;
 
   return (
     <>

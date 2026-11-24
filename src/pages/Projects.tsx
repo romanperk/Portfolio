@@ -9,6 +9,7 @@ import { LuArrowRight, LuChevronRight } from "react-icons/lu";
 import { ExternalLink } from "../components/ExternalLink";
 import { ScreenshotGallery } from "../components/ScreenshotGallery";
 import { Row, Section } from "../components/Section";
+import { links } from "../consts/links";
 import { t } from "../i18n";
 
 const screenshots = [
@@ -186,10 +187,10 @@ const PokedexBand = () => (
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <h3 className="text-2xl font-medium">Pokédex</h3>
             <div className="flex flex-wrap gap-3">
-              <ExternalLink href="https://pokedex-web-phi-umber.vercel.app" className="btn btn-secondary">
+              <ExternalLink href={links.pokedexApp} className="btn btn-secondary">
                 {t.projects.liveApp}
               </ExternalLink>
-              <ExternalLink href="https://github.com/romanperk/Pokedex-Web" className="btn btn-secondary">
+              <ExternalLink href={links.pokedexSource} className="btn btn-secondary">
                 {t.projects.sourceCode}
               </ExternalLink>
             </div>

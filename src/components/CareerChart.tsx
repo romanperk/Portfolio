@@ -62,9 +62,6 @@ const plot = [...currentSteps].reverse().map((entry, index) => {
 });
 const plotMs = clock;
 
-// Read once, like the locale: the intro either plays or the chart is drawn from the start.
-const motion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
 export const CareerChart = () => {
   const figureRef = useRef<HTMLElement>(null);
   const markerRef = useRef<HTMLSpanElement>(null);
@@ -72,7 +69,9 @@ export const CareerChart = () => {
 
   // A layout effect, so the chart hides before its first paint instead of flashing fully drawn.
   useLayoutEffect(() => {
-    if (!motion || !figureRef.current || !markerRef.current) return;
+    // With reduced motion the chart is simply drawn from the start.
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || !figureRef.current || !markerRef.current) return;
 
     const animations = plot.map(({ entry, start, end, last }) =>
       barRefs.current[entry.id]!.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], {
