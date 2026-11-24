@@ -1,6 +1,6 @@
 /** Shared by the page, the JSON-LD and llms.txt, so they never drift apart. */
 export const links = {
-  site: "https://romanperk.com",
+  site: "https://www.romanperk.com",
   email: "perkroman@gmail.com",
   github: "https://github.com/romanperk",
   linkedin: "https://www.linkedin.com/in/roman-perk/",

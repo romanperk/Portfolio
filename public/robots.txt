@@ -14,4 +14,4 @@ User-agent: Google-Extended
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://romanperk.com/sitemap.xml
+Sitemap: https://www.romanperk.com/sitemap.xml
